@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoadingView" customModule="VSmart" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="144" height="121"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIe-k3-5BB" customClass="AnimatableView" customModule="IBAnimatable">
+                    <rect key="frame" x="0.0" y="0.0" width="144" height="121"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-icon" translatesAutoresizingMaskIntoConstraints="NO" id="yPS-5g-kDR">
+                            <rect key="frame" x="48.5" y="20" width="47" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="47" id="GHT-ti-rPo"/>
+                                <constraint firstAttribute="width" secondItem="yPS-5g-kDR" secondAttribute="height" multiplier="1:1" id="xOB-XJ-DdE"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIf-kE-nGc">
+                            <rect key="frame" x="15" y="77" width="114" height="24"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                            <color key="textColor" red="0.015686274509803921" green="0.53333333333333333" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="121" id="3yW-gv-fzW"/>
+                        <constraint firstItem="yPS-5g-kDR" firstAttribute="centerX" secondItem="aIe-k3-5BB" secondAttribute="centerX" id="BSg-OL-0Ab"/>
+                        <constraint firstItem="jIf-kE-nGc" firstAttribute="centerX" secondItem="yPS-5g-kDR" secondAttribute="centerX" id="GoX-Fx-OCW"/>
+                        <constraint firstItem="jIf-kE-nGc" firstAttribute="leading" secondItem="aIe-k3-5BB" secondAttribute="leading" constant="15" id="MxY-mS-E6x"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="NQr-4k-EQy"/>
+                        <constraint firstItem="yPS-5g-kDR" firstAttribute="top" secondItem="aIe-k3-5BB" secondAttribute="top" constant="20" id="OWc-l8-nbe"/>
+                        <constraint firstAttribute="bottom" secondItem="jIf-kE-nGc" secondAttribute="bottom" constant="20" id="cOR-tD-7PU"/>
+                        <constraint firstItem="jIf-kE-nGc" firstAttribute="top" secondItem="yPS-5g-kDR" secondAttribute="bottom" constant="10" id="f9q-Dd-yMD"/>
+                        <constraint firstAttribute="trailing" secondItem="jIf-kE-nGc" secondAttribute="trailing" constant="15" id="fTh-4x-vKW"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="nTZ-A7-vJH"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="aIe-k3-5BB" secondAttribute="trailing" id="Sk3-HB-ror"/>
+                <constraint firstItem="aIe-k3-5BB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UcS-bo-pn8"/>
+                <constraint firstAttribute="bottom" secondItem="aIe-k3-5BB" secondAttribute="bottom" id="dSw-5P-7Ga"/>
+                <constraint firstItem="aIe-k3-5BB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qY8-5w-YwB"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="loadingImageView" destination="yPS-5g-kDR" id="UR3-bm-y9M"/>
+                <outlet property="loadingTitleLabel" destination="jIf-kE-nGc" id="IH3-g7-tjQ"/>
+            </connections>
+            <point key="canvasLocation" x="59" y="43.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="loading-icon" width="47" height="47"/>
+    </resources>
+</document>
