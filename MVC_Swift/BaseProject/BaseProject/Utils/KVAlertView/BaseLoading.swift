@@ -1,16 +1,16 @@
 //
-//  KVLoading.swift
+//  BaseLoading.swift
 //
 //  Created by Vu Van Khac on 2/22/17.
 //
 
 import UIKit
 
-public class KVLoading: UIView {
+public class BaseLoading: UIView {
     
-    class var shared: KVLoading {
+    class var shared: BaseLoading {
         struct Static {
-            static let shared = KVLoading()
+            static let shared = BaseLoading()
         }
         
         return Static.shared
@@ -89,7 +89,7 @@ public class KVLoading: UIView {
             customView.translatesAutoresizingMaskIntoConstraints = false
             contentView = customView
         } else {
-            contentView = KVLoadingView()
+            contentView = BaseLoadingView()
         }
         
         guard let contentView = self.contentView else {
@@ -143,7 +143,7 @@ public class KVLoading: UIView {
             customView.translatesAutoresizingMaskIntoConstraints = false
             contentView = customView
         } else {
-            contentView = KVLoadingView()
+            contentView = BaseLoadingView()
         }
         
         guard let contentView = self.contentView else {
@@ -200,7 +200,7 @@ public class KVLoading: UIView {
     
 }
 
-class KVLoadingView: UIView {
+class BaseLoadingView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

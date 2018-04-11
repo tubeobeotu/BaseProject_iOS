@@ -356,7 +356,7 @@ class BaseRouter {
                                     errMessageString = json["errMsg"].stringValue
                                     print("Message aaa: \(String(describing: errMessageString))")
 
-                                    KVLoading.hide(animated: true)
+                                    BaseLoading.hide(animated: true)
                                     
                                     let vc = self.getTopVC()
                                     vc?.showAlertControllerFromExtension(title: "Thông báo".localizedString(), message: errMessageString!, okAction: nil)
@@ -364,7 +364,7 @@ class BaseRouter {
                                     errorMessageString = json["errorMsg"].stringValue
                                     print("Message bbb: \(String(describing: errorMessageString))")
 
-                                    KVLoading.hide(animated: true)
+                                    BaseLoading.hide(animated: true)
                                     let vc = self.getTopVC()
                                     vc?.showAlertControllerFromExtension(title: "Thông báo".localizedString(), message: errorMessageString!, okAction: nil)
                                 } else {
@@ -416,7 +416,7 @@ class BaseRouter {
                         var infoMessage : String?
                         if json["infoMsg"].exists() {
                             infoMessage = json["infoMsg"].stringValue
-                            KVLoading.hide(animated: true)
+                            BaseLoading.hide(animated: true)
                             
                             let vc = self.getTopVC()
                             vc?.showAlertControllerFromExtension(title: "Thông báo".localizedString(), message: infoMessage!, okAction: {
@@ -430,7 +430,7 @@ class BaseRouter {
                             response = .success(nil, nil)
                             print("Message aaa: \(String(describing: errMessageString))")
                             
-                            KVLoading.hide(animated: true)
+                            BaseLoading.hide(animated: true)
                             
                             let vc = self.getTopVC()
                             vc?.showAlertControllerFromExtension(title: "Thông báo".localizedString(), message: errMessageString!, okAction: {
@@ -443,7 +443,7 @@ class BaseRouter {
                             response = .success(nil, nil)
                             print("Message bbb: \(String(describing: errorMessageString))")
                             
-                            KVLoading.hide(animated: true)
+                            BaseLoading.hide(animated: true)
                             let vc = self.getTopVC()
                             vc?.showAlertControllerFromExtension(title: "Thông báo".localizedString(), message: errorMessageString!, okAction: {
                                 NotificationCenter.default.post(name:Notification.Name("resetValue"), object: nil)

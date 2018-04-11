@@ -110,19 +110,19 @@ extension BaseViewController {
         isLoading = true
         UIView.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideLoading(animated:)), object: nil)
         perform(#selector(hideLoading(animated:)), with: nil, afterDelay: timeout)
-        KVLoading.show(customView, animated: animated)
+        BaseLoading.show(customView, animated: animated)
     }
     
     func showLoadingInView(_ view: UIView, timeout: TimeInterval = BaseRouter.timeOut, customView: UIView? = nil, animated: Bool = true) {
         isLoading = true
         UIView.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideLoading(animated:)), object: nil)
         perform(#selector(hideLoading(animated:)), with: nil, afterDelay: timeout)
-        KVLoading.showInView(view: view, customView: customView, animated: animated)
+        BaseLoading.showInView(view: view, customView: customView, animated: animated)
     }
     
     @objc func hideLoading(animated: Bool = true) {
         isLoading = false
-        KVLoading.hide(animated: animated)
+        BaseLoading.hide(animated: animated)
     }
 }
 extension UIViewController

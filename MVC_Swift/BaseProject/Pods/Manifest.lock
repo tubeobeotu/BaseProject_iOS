@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (4.2.0)
+  - FileKit (5.0.0)
+  - IBAnimatable (5.0.0)
+  - PullToRefreshKit (0.8.2)
+  - QBImagePickerController (3.4.0)
+  - ReachabilitySwift (3)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.2.0)
+  - FileKit
+  - IBAnimatable
+  - PullToRefreshKit
+  - QBImagePickerController
+  - ReachabilitySwift (~> 3)
+  - SwiftyJSON (~> 3.1.4)
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  FileKit: 857f5f9d2583044c1354e7564b110d80f31405e8
+  IBAnimatable: aa2286a9cf8fb4ae2e1be85c5287ae56143b024f
+  PullToRefreshKit: 0a2a019bf094b8beba18c8a1bedfb1fb67ee70fd
+  QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: db843858aecb8218107c13234130409a77deea55
+
+COCOAPODS: 1.4.0

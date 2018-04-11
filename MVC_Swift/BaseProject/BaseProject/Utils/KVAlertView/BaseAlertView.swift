@@ -1,8 +1,8 @@
 //
-//  KVAlertView.swift
+//  BaseAlertView
 //
 
-//let verificationAlertView = KVAlertView(contentView: warningInfo)
+//let verificationAlertView = BaseAlertView(contentView: warningInfo)
 ////        verificationAlertView.isHiddenWhenTouchOnBackScreen = false
 //verificationAlertView.showInView(self.masterView, execute: {
 //    
@@ -17,7 +17,7 @@
 
 import UIKit
 
-class KVAlertView: UIView {
+class BaseAlertView: UIView {
     var isHiddenWhenTouchOnBackScreen = false
     private let backgroundTransparency: CGFloat = 0.2
     private var alertWidth: CGFloat = 224.0
@@ -147,7 +147,7 @@ class KVAlertView: UIView {
     }
 }
 
-extension KVAlertView: UIGestureRecognizerDelegate
+extension BaseAlertView: UIGestureRecognizerDelegate
 {
     func addDismisViewGesture()
     {
