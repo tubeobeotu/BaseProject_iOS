@@ -1,7 +1,3 @@
-//
-//  BaseViewController.swift
-//
-
 import UIKit
 import KVLoading
 import ReachabilitySwift

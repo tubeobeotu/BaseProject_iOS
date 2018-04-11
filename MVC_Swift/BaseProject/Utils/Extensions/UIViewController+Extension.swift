@@ -128,8 +128,8 @@ extension UIViewController {
     }
 
     func callSupportAction() {
-        let alertController = UIAlertController(title: VTLocalizedString.localized(key: "callSupport").localizedString(), message: VTLocalizedString.localized(key: "call19001600").localizedString(), preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: VTLocalizedString.localized(key: "CÓ").localizedString(), style: UIAlertActionStyle.default, handler:{(alertAction) in
+        let alertController = UIAlertController(title:  "callSupport".localizedString(), message: "call19001600".localizedString(), preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "CÓ".localizedString(), style: UIAlertActionStyle.default, handler:{(alertAction) in
                 if let url = URL(string: "tel://\(1789)"), UIApplication.shared.canOpenURL(url) {
                     if #available(iOS 10, *) {
                         UIApplication.shared.open(url)
@@ -138,7 +138,7 @@ extension UIViewController {
                     }
                 }
             }))
-        alertController.addAction(UIAlertAction(title: VTLocalizedString.localized(key: "KHÔNG").localizedString(), style: UIAlertActionStyle.default, handler:nil))
+        alertController.addAction(UIAlertAction(title: "KHÔNG".localizedString(), style: UIAlertActionStyle.default, handler:nil))
         present(alertController, animated: true, completion: nil)
     }
     

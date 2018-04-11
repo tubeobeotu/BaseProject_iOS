@@ -1,11 +1,3 @@
-//
-//  BaseInputViewController.swift
-//  VSmart
-//
-//  Created by Hiep Le Dinh on 12/13/17.
-//  Copyright © 2017 ITSOL. All rights reserved.
-//
-
 import UIKit
 
 struct Constants {

@@ -1,23 +1,8 @@
-//
-//  Constant.swift
-//  VSmart
-//
-//  Created by Macbook Pro on 9/8/17.
-//  Copyright © 2017 ITSOL. All rights reserved.
-//
-
 import UIKit
 import Foundation
 
-struct VTLocalizedString {
-	static func localized(key: String) -> String{
-		return NSLocalizedString(key, comment: "")
-	}
-}
 
 struct Constant {
-    static let RES_SUCCESS_CODE_FROM_SV: Int = 0
-    static let LIMIT_DISTANCE = 3000
 	static let SCREEN_WIDTH_PORTRAIT = UIScreen.main.bounds.size.width
 	static let SCREEN_HEIGHT_PORTRAIT = UIScreen.main.bounds.size.height
 	static let NUMBER_RECORDS_PER_PAGE = 10

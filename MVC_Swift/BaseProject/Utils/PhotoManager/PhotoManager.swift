@@ -120,14 +120,14 @@ class PhotoManager: NSObject {
 //            self.setupImagePicker()
 //        }
         
-        let actionSheetController: UIAlertController = UIAlertController(title: VTLocalizedString.localized(key: "Thêm ảnh"), message: nil, preferredStyle: .alert)
-        let cancelAction: UIAlertAction = UIAlertAction(title: VTLocalizedString.localized(key: "BỎ QUA"), style: .default) { action -> Void in
+        let actionSheetController: UIAlertController = UIAlertController(title: "Thêm ảnh".localizedString(), message: nil, preferredStyle: .alert)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "BỎ QUA".localizedString(), style: .default) { action -> Void in
             //Just dismiss the action sheet
         }
-        let takePhoto: UIAlertAction = UIAlertAction(title: VTLocalizedString.localized(key: "CHỤP ẢNH"), style: .default) { action -> Void in
+        let takePhoto: UIAlertAction = UIAlertAction(title: "CHỤP ẢNH".localizedString(), style: .default) { action -> Void in
             self.delegate?.presentVC().present(self.imageTakePictureController!, animated: true, completion: nil)
         }
-        let selecFromLib: UIAlertAction = UIAlertAction(title: VTLocalizedString.localized(key: "CHỌN ẢNH TỪ THƯ VIỆN"), style: .default) { action -> Void in
+        let selecFromLib: UIAlertAction = UIAlertAction(title: "CHỌN ẢNH TỪ THƯ VIỆN".localizedString(), style: .default) { action -> Void in
             self.delegate?.presentVC().present(self.imageLibraryPickerController!, animated: true, completion: nil)
         }
         if((self.imageTakePictureController) != nil && (self.type == .All || self.type == .Camera))
@@ -258,7 +258,7 @@ extension PhotoManager: UIImagePickerControllerDelegate, UINavigationControllerD
         
         if timeSecond > 7200 {
             picker.dismiss(animated: true, completion: {
-                let actionSheetController: UIAlertController = UIAlertController(title: VTLocalizedString.localized(key: "Thông báo"), message: VTLocalizedString.localized(key: "Ảnh bạn chọn là ảnh đã chụp quá 2 tiếng trước"), preferredStyle: .alert)
+                let actionSheetController: UIAlertController = UIAlertController(title: VTLocalizedString.localized(key: "Thông báo"), message: "Ảnh bạn chọn là ảnh đã chụp quá 2 tiếng trước".localizedString(), preferredStyle: .alert)
                 let cancelAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
                 }
                 actionSheetController.addAction(cancelAction)

@@ -7,7 +7,7 @@ class LoadingView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.loadingTitleLabel.text = VTLocalizedString.localized(key: "loggingIn")
+        self.loadingTitleLabel.text = "loggingIn".localizedString()
     }
     
     func startRotate() {

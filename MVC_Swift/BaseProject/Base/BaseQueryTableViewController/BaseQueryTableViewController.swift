@@ -25,7 +25,7 @@ class BaseQueryTableViewController: BaseViewController {
     lazy var enableCheckDuplicate = true
     lazy var enableAutoAddEmpty = true
     //Empty label
-    var emptyLabel: String = VTLocalizedString.localized(key: "Không tìm thấy công việc")
+    var emptyLabel: String = "Không tìm thấy công việc".localizedString()
     var enableShowFullSeperator = false
     {
         didSet {
@@ -258,9 +258,9 @@ extension BaseQueryTableViewController {
                     self.allowLoadMore = true
                     self.loadObjects(clear: true)
                     }.SetUp({ (header) in
-                        header.setText(VTLocalizedString.localized(key: "Kéo để làm mới"), mode: .pullToRefresh)
-                        header.setText(VTLocalizedString.localized(key: "Thả ra để làm mới"), mode: .releaseToRefresh)
-                        header.setText(VTLocalizedString.localized(key: "Đang tải..."), mode: .refreshing)
+                        header.setText("Kéo để làm mới".localizedString(), mode: .pullToRefresh)
+                        header.setText("Thả ra để làm mới".localizedString(), mode: .releaseToRefresh)
+                        header.setText("Đang tải...".localizedString(), mode: .refreshing)
                         header.textLabel.textColor = Constant.color.blueVSmart
                         header.textLabel.font = Constant.font.robotoRegular(ofSize: 15)
                         header.imageView.image = nil
@@ -281,7 +281,7 @@ extension BaseQueryTableViewController {
                         footer.setText("", mode: .pullToRefresh)
                         footer.setText("", mode: .tapToRefresh)
                         footer.setText("", mode: .scrollAndTapToRefresh)
-                        footer.setText(VTLocalizedString.localized(key: "Đang tải..."), mode: .refreshing)
+                        footer.setText("Đang tải...".localizedString(), mode: .refreshing)
                         footer.setText("", mode: .noMoreData)
                         footer.textLabel.textColor = Constant.color.blueVSmart
                         footer.textLabel.font = Constant.font.robotoRegular(ofSize: 15)

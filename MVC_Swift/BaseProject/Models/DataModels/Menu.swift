@@ -44,9 +44,9 @@ class Menu: BaseDataModel, NSCoding {
                 objectUrl = .UnKown
             }
             if json["objectUrl"].intValue == 1000 {
-                objectName = VTLocalizedString.localized(key: "objectNameWO")
+                objectName = "objectNameWO"
             }else if json["objectUrl"].intValue == 2000 {
-                objectName = VTLocalizedString.localized(key: "objectNameActivelyMonitoring")
+                objectName = "objectNameActivelyMonitoring"
             }else {
                 if json["objectName"].exists() {
                     objectName = json["objectName"].stringValue
