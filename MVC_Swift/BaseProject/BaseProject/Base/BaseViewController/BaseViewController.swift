@@ -5,10 +5,11 @@ enum ContentState {
     case loading
     case empty
     case error
+    case done
 }
 
 class BaseViewController: UIViewController {
-
+    
     lazy var isLoadConfig = false
     private var enableHideKeyBoardWhenTouchInScreen: Bool = false
     var enableNotification = true
@@ -19,7 +20,7 @@ class BaseViewController: UIViewController {
         }
         
         set {
-        
+            
             self.enableHideKeyBoardWhenTouchInScreen = newValue
             if self.enableHideKeyBoardWhenTouchInScreen {
                 let touchOnScreen = UITapGestureRecognizer(target: self, action: #selector(self.touchOnScreen))
@@ -49,12 +50,14 @@ class BaseViewController: UIViewController {
         let reachability = Reachability()
         return reachability!
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         view.backgroundColor = Constant.color.backgroundVSmart
         registerForBackgroundNotifications()
+        
+        navigationController?.navigationBar.topItem?.title = ""
         
     }
     
@@ -76,10 +79,16 @@ class BaseViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.touchOnScreen()
+        if(self .isMovingFromParentViewController)
+        {
+            self.willPopBack()
+        }else{
+            self.willPush()
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -89,8 +98,42 @@ class BaseViewController: UIViewController {
     deinit {
         destroyForBackgroundNotifications()
     }
+    
+    func willPopBack()
+    {
+        
+    }
+    func willPush()
+    {
+        
+    }
+    
 }
-
+extension BaseViewController
+{
+    func show(vc: UIViewController)
+    {
+        if let nav = self.navigationController
+        {
+            nav.pushViewController(vc, animated: true)
+        }else{
+            self.present(vc, animated: true, completion: nil)
+        }
+        
+    }
+    func popBack()
+    {
+        self.willPopBack()
+        if (self.navigationController?.presentingViewController) != nil
+        {
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }else{
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
+}
 extension BaseViewController {
     
     // MARK: - Actions
@@ -237,7 +280,7 @@ extension BaseViewController {
 }
 
 extension BaseViewController {
-
+    
     // MARK: - Reachability
     func registerForReachabilityNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(_:)), name: ReachabilityChangedNotification, object: reachability)
