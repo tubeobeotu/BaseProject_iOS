@@ -64,6 +64,8 @@ class BaseQueryTableViewController: BaseViewController {
             case .error:
                 errorView.frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height)
                 tableView.addSubview(errorView)
+            case .done:
+                break
             }
         }
     }
@@ -79,20 +81,20 @@ class BaseQueryTableViewController: BaseViewController {
         }
     }
     
-//    var emptyView: DefaultEmptyView {
-//        get {
-//            if emptyViewValue == nil {
-//                emptyViewValue = DefaultEmptyView.loadFromNib()
-//            }
-//            emptyViewValue?.titleLabel.text = emptyLabel
-//            emptyViewValue?.subTitleLabel.text = ""
-//            emptyViewValue?.cloudIconImage.isHidden = true
-//            return emptyViewValue!
-//        }
-//    }
+    //    var emptyView: DefaultEmptyView {
+    //        get {
+    //            if emptyViewValue == nil {
+    //                emptyViewValue = DefaultEmptyView.loadFromNib()
+    //            }
+    //            emptyViewValue?.titleLabel.text = emptyLabel
+    //            emptyViewValue?.subTitleLabel.text = ""
+    //            emptyViewValue?.cloudIconImage.isHidden = true
+    //            return emptyViewValue!
+    //        }
+    //    }
     var emptyViewValue: DefaultEmptyView?
     public func changeEmptyView() -> DefaultEmptyView{
-    
+        
         if emptyViewValue == nil {
             emptyViewValue = DefaultEmptyView.loadFromNib()
         }
@@ -163,9 +165,9 @@ class BaseQueryTableViewController: BaseViewController {
                     
                     if let allObjects = response as? [BaseDataModel] {
                         for object in allObjects {
-                          //  if !self.allObjects.contains(where: { self.enableCheckDuplicate && $0.objectId == object.objectId }) {
-                                self.allObjects.append(object)
-                          //  }
+                            //  if !self.allObjects.contains(where: { self.enableCheckDuplicate && $0.objectId == object.objectId }) {
+                            self.allObjects.append(object)
+                            //  }
                             //self.allObjects.append(object)
                         }
                         
@@ -206,7 +208,7 @@ class BaseQueryTableViewController: BaseViewController {
                         self.objectsDidLoad(error: true)
                     }
                     self.objectsDidLoad(rawResponse: response)
-                
+                    
                 case .networkError():
                     self.allObjects = self.tmpAllObjects
                     self.contentState = .hasContent
