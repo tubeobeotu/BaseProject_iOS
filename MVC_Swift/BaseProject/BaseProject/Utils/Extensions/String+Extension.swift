@@ -87,7 +87,79 @@ extension String {
         return self.replacingOccurrences(of: leadingAndTrailingWhitespacePattern, with: "", options: .regularExpression)
     }
 }
+extension String
+{
+    func toDateFormat8601() -> Date? {
+        let dateFormatter = DateFormatter()
+        //                                  2017-12-17T23:15:56-05:00
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZ"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        //dateFormatter.timeZone = TimeZone.current
+        return dateFormatter.date(from: self)
+    }
+    
+    func toUnixTimestamp() -> Double {
+        
+        if let date = self.toDateFormat8601() {
+            return date.timeIntervalSince1970
+        }
+        return 0
+    }
+}
+extension String
+{
+    func isValidedString() -> Bool
+    {
+        if(self.trimmingCharacters(in: .whitespacesAndNewlines).count > 0)
+        {
+            return true
+        }
+        return false
+    }
+    
+    func stringByRemovingWhitespaceAndNewlineCharacterSet() -> String {
+        return self.components(separatedBy: NSCharacterSet.whitespacesAndNewlines).joined(separator: "")
+    }
+    
+    func convertToLatinCharacters() -> String
+    {
+        let temp = self.data(using: .ascii, allowLossyConversion: true)
+        if let result = String(data: temp!, encoding: .ascii)
+        {
+            return result
+        }
+        return ""
+    }
+    func underline(color: UIColor) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        let range = NSRange(location: 0, length: attributedString.length)
+        attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: color , range: range)
+        return attributedString
+    }
+    func getYear() -> String
+    {
+        let indexStartOfText = self.index(self.endIndex, offsetBy: -2)
+        return String(self[indexStartOfText...])
+    }
+    
+    func height(constraintedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let label =  UILabel(frame: CGRect(x: 0, y: 0, width: width, height: .greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.text = self
+        label.font = font
+        label.sizeToFit()
+        
+        return label.frame.height
+    }
+}
 
+
+extension String: Error {}/*Enables you to throw a string*/
+
+extension String: LocalizedError {/*Adds error.localizedDescription to Error instances*/
+    public var errorDescription: String? { return self }
+}
 //Random string
 extension Data {
     var html2AttributedString: NSAttributedString? {
