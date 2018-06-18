@@ -20,7 +20,6 @@
 		93ABBCA1207DBB470080F385 /* XuLyDiemXungYeuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABBC65207DBB460080F385 /* XuLyDiemXungYeuRouter.swift */; };
 		93ABBCA2207DBB470080F385 /* AppInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABBC69207DBB460080F385 /* AppInformation.swift */; };
 		93ABBCA3207DBB470080F385 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABBC6B207DBB460080F385 /* Array+Extension.swift */; };
-		93ABBCA4207DBB470080F385 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABBC6C207DBB460080F385 /* Data+Extension.swift */; };
 		93ABBCA5207DBB470080F385 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABBC6D207DBB460080F385 /* Date+Extension.swift */; };
 		93ABBCA6207DBB470080F385 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABBC6E207DBB460080F385 /* Dictionary+Extension.swift */; };
 		93ABBCA7207DBB470080F385 /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABBC6F207DBB460080F385 /* Float+Extension.swift */; };
@@ -114,7 +113,6 @@
 		93ABBC65207DBB460080F385 /* XuLyDiemXungYeuRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XuLyDiemXungYeuRouter.swift; sourceTree = "<group>"; };
 		93ABBC69207DBB460080F385 /* AppInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInformation.swift; sourceTree = "<group>"; };
 		93ABBC6B207DBB460080F385 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
-		93ABBC6C207DBB460080F385 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		93ABBC6D207DBB460080F385 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		93ABBC6E207DBB460080F385 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		93ABBC6F207DBB460080F385 /* Float+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
@@ -362,7 +360,6 @@
 			isa = PBXGroup;
 			children = (
 				93ABBC6B207DBB460080F385 /* Array+Extension.swift */,
-				93ABBC6C207DBB460080F385 /* Data+Extension.swift */,
 				93ABBC6D207DBB460080F385 /* Date+Extension.swift */,
 				93ABBC6E207DBB460080F385 /* Dictionary+Extension.swift */,
 				93ABBC6F207DBB460080F385 /* Float+Extension.swift */,
@@ -935,7 +932,6 @@
 				93ABBD00207DBBA20080F385 /* BaseCollectionViewCell.swift in Sources */,
 				93ABBD01207DBBA20080F385 /* BaseNavigationController.swift in Sources */,
 				93ABBD10207DBBA20080F385 /* DPDKeyboardListener.swift in Sources */,
-				93ABBCA4207DBB470080F385 /* Data+Extension.swift in Sources */,
 				93ABBD14207DBBA20080F385 /* DropDown+Appearance.swift in Sources */,
 				93ABBCB8207DBB470080F385 /* VTView.swift in Sources */,
 				93ABBD04207DBBA20080F385 /* SwiftyJSONMappable.swift in Sources */,
