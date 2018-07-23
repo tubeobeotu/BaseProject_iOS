@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftyJSON
 protocol IApiOutput {
-    
+    func getJSON() -> JSON
 }

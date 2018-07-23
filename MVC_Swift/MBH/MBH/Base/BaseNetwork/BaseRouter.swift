@@ -41,7 +41,13 @@ struct UploadFile: IApiUploadFile
         return mineType
     }
     
-    
+}
+
+struct ApiOutput: IApiOutput{
+    var data: Data!
+    override func getJson() -> JSON{
+        return try! JSON(data)
+    }
 }
 extension BaseRouter
 {
@@ -139,7 +145,7 @@ class BaseRouter: IApi {
         fatalError("[\(#function))] Must be overridden in subclass")
     }
     
-    func response(json: IApiOutput) -> Any? {
+    func response(data: IApiOutput) -> Any? {
         fatalError("[\(#function))] Must be overridden in subclass")
     }
     
@@ -173,11 +179,6 @@ class BaseRouter: IApi {
         configuration.timeoutIntervalForResource = timeOut()
         return SessionManager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies))
     }()
-    
-    var page: Int = 0
-    var skip: Int = 0
-    var limit: Int = 10
-    
     // MARK: - Public methods
     func request(completed: ((APIResult) -> Void)?) {
         var response: APIResult = .networkError() {
@@ -222,9 +223,9 @@ class BaseRouter: IApi {
                 
                 // Add images with multipartBody
                 if var dataImages = self.uploadFiles() {
-                    if dataImages.count < 5 {
+                    if dataImages.count > 0 {
                         let count = dataImages.count
-                        for i in 1...(5 - count) {
+                        for i in 0..<count) {
                             let newIndex : Int = count + i
                             var file = UploadFile()
                             file.data = Data()
@@ -254,33 +255,14 @@ class BaseRouter: IApi {
                     request.responseJSON(completionHandler: { (responseObject) in
                         if let resultResponse = responseObject.response {
                             if let data = responseObject.data {
-                                let json = try! JSON(data: data)
+                                let output = ApiOutput(data: data)
                                 print("Status code: \(resultResponse.statusCode)")
                                 print("Response json: \(json)")
                                 var errMessageString: String?
                                 var errorMessageString: String?
-                                
-                                if json["errMsg"].exists() {
-                                    errMessageString = json["errMsg"].stringValue
-                                    print("Message aaa: \(String(describing: errMessageString))")
-
-                                    BaseLoading.hide(animated: true)
-                                    
-                                    let vc = self.getTopVC()
-                                    vc?.showAlertControllerFromExtension(title: "Thông báo".localizedString(), message: errMessageString!, okAction: nil)
-                                }else if json["errorMsg"].exists() {
-                                    errorMessageString = json["errorMsg"].stringValue
-                                    print("Message bbb: \(String(describing: errorMessageString))")
-
-                                    BaseLoading.hide(animated: true)
-                                    let vc = self.getTopVC()
-                                    vc?.showAlertControllerFromExtension(title: "Thông báo".localizedString(), message: errorMessageString!, okAction: nil)
-                                } else {
-//
                                     switch resultResponse.statusCode {
                                     case 200, 201, 202, 203, 204:
-                                        if let entity = self.response(json: json) {
-                                            
+                                        if let entity = self.response(data: output) {
                                             response = .success(entity, nil)
                                             
                                         } else {
@@ -290,7 +272,7 @@ class BaseRouter: IApi {
                                     default:
                                         response = .failure(responseObject.result.error)
                                     }
-                                }
+                                
                                 
                             } else {
                                 response = .failure(responseObject.result.error)
@@ -315,57 +297,16 @@ class BaseRouter: IApi {
                 isTimedOut = false
                 if let resultResponse = result.response {
                     if let data = result.data {
-                        let json = try! JSON(data: data)
+                        let output = ApiOutput(data: data)
                         print("Status code: \(resultResponse.statusCode)")
                         print("Response json: \(json)")
                         var errMessageString: String?
                         var errorMessageString: String?
                         var infoMessage : String?
-                        if json["infoMsg"].exists() {
-                            infoMessage = json["infoMsg"].stringValue
-                            BaseLoading.hide(animated: true)
-                            
-                            let vc = self.getTopVC()
-                            vc?.showAlertControllerFromExtension(title: "Thông báo".localizedString(), message: infoMessage!, okAction: {
-                                NotificationCenter.default.post(name:Notification.Name("resetValue"), object: nil)
-                                
-                            })
-                        }
-                        if json["errMsg"].exists() {
-                            
-                            errMessageString = json["errMsg"].stringValue
-                            response = .success(nil, nil)
-                            print("Message aaa: \(String(describing: errMessageString))")
-                            
-                            BaseLoading.hide(animated: true)
-                            
-                            let vc = self.getTopVC()
-                            vc?.showAlertControllerFromExtension(title: "Thông báo".localizedString(), message: errMessageString!, okAction: {
-                                NotificationCenter.default.post(name:Notification.Name("resetValue"), object: nil)
-                                
-                            })
-                        }else if json["errorMsg"].exists() {
-                            
-                            errorMessageString = json["errorMsg"].stringValue
-                            response = .success(nil, nil)
-                            print("Message bbb: \(String(describing: errorMessageString))")
-                            
-                            BaseLoading.hide(animated: true)
-                            let vc = self.getTopVC()
-                            vc?.showAlertControllerFromExtension(title: "Thông báo".localizedString(), message: errorMessageString!, okAction: {
-                                NotificationCenter.default.post(name:Notification.Name("resetValue"), object: nil)
-                              
-                            })
-                        } else {
-                            //
                             switch resultResponse.statusCode {
                             case 200, 201, 202, 203, 204:
-                                if let entity = self.response(json: json) {
-                                    if let otherEntity = self.otherResponse(json: json) {
-                                        response = .success(entity, otherEntity)
-                                    } else {
-                                        response = .success(entity, nil)
-                                    }
+                                if let entity = self.response(data: output) {
+                                    response = .success(entity, nil)
                                 } else {
                                     response = .failure(result.error)
                                 }
@@ -373,7 +314,7 @@ class BaseRouter: IApi {
                             default:
                                 response = .failure(result.error)
                             }
-                        }
+                        
                     } else {
                         response = .failure(result.error)
                     }
