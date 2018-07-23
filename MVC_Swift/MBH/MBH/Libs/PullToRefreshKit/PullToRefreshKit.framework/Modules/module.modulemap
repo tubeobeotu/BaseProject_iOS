@@ -1,0 +1,11 @@
+framework module PullToRefreshKit {
+  umbrella header "PullToRefreshKit.h"
+
+  export *
+  module * { export * }
+}
+
+module PullToRefreshKit.Swift {
+    header "PullToRefreshKit-Swift.h"
+    requires objc
+}
