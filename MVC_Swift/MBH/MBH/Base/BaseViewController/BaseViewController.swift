@@ -102,6 +102,11 @@ class BaseViewController: UIViewController {
         
     }
     
+    func handleError(error: IError){
+        self.touchOnScreen()
+        self.showAlertControllerFromExtension(title: error.getTitle() ?? "", message: error.getErrorDescription() ?? "", okAction: nil)
+    }
+    
 }
 extension BaseViewController
 {
@@ -143,14 +148,14 @@ extension BaseViewController {
 extension BaseViewController {
     
     // MARK: - Loading
-    func showLoading(timeout: TimeInterval = BaseRouter.timeOut, customView: UIView? = nil, animated: Bool = true) {
+    func showLoading(timeout: TimeInterval = BaseRequest.timeOut(), customView: UIView? = nil, animated: Bool = true) {
         isLoading = true
         UIView.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideLoading(animated:)), object: nil)
         perform(#selector(hideLoading(animated:)), with: nil, afterDelay: timeout)
         BaseLoading.show(customView, animated: animated)
     }
     
-    func showLoadingInView(_ view: UIView, timeout: TimeInterval = BaseRouter.timeOut, customView: UIView? = nil, animated: Bool = true) {
+    func showLoadingInView(_ view: UIView, timeout: TimeInterval = BaseRequest.timeOut(), customView: UIView? = nil, animated: Bool = true) {
         isLoading = true
         UIView.cancelPreviousPerformRequests(withTarget: self, selector: #selector(hideLoading(animated:)), object: nil)
         perform(#selector(hideLoading(animated:)), with: nil, afterDelay: timeout)
@@ -170,58 +175,6 @@ extension UIViewController
             okAction?()
         })
         self.present(alertController, animated: true, completion: nil)
-    }
-}
-extension BaseViewController {
-    
-    // MARK: - Alerts
-    func showAlertController(title: String, message: String, okTitle: String = "OK".localizedString().uppercased(), okAction: (() -> Void)?) {
-        self.showAlertControllerFromExtension(title: title, message: message, okAction: okAction)
-    }
-    
-    func showAlertController(title: String, message: String, cancelTitle: String = "Hủy bỏ".localizedString().uppercased(), cancelAction: (() -> Void)?, okTitle: String = "OK".localizedString().uppercased(), okAction: (() -> Void)?) {
-        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: cancelTitle.uppercased(), style: .default) { (cancelButton) in
-            cancelAction?()
-        })
-        alertController.addAction(UIAlertAction(title: okTitle.uppercased(), style: .default) { (cancelButton) in
-            okAction?()
-        })
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func showAlertController(title: String, message: String, secureTextEntry: Bool = true, textfieldPlaceholder: String, keyboardType: UIKeyboardType = .default, cancelTitle: String = "Hủy bỏ".localizedString().uppercased(), cancelAction: (() -> Void)?, okTitle: String = "OK".localizedString().uppercased(), okAction: ((String) -> Void)?) {
-        var inputTextField: UITextField?
-        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addTextField { (textfield) in
-            if secureTextEntry {
-                textfield.isSecureTextEntry = true
-            }
-            textfield.placeholder = textfieldPlaceholder
-            textfield.keyboardType = keyboardType
-            textfield.borderStyle = .roundedRect
-            inputTextField = textfield
-        }
-        alertController.addAction(UIAlertAction(title: cancelTitle.uppercased(), style: .default) { (cancelButton) in
-            cancelAction?()
-        })
-        alertController.addAction(UIAlertAction(title: okTitle.uppercased(), style: .default) { (cancelButton) in
-            if let password = inputTextField?.text {
-                okAction?(password)
-            }
-        })
-        self.present(alertController, animated: true, completion: nil)
-        
-        if let textFields = alertController.textFields {
-            for textfield in textFields {
-                let container = textfield.superview
-                let effectView = container?.superview?.subviews[0]
-                if effectView is UIVisualEffectView {
-                    container?.backgroundColor = .clear
-                    effectView?.removeFromSuperview()
-                }
-            }
-        }
     }
 }
 

@@ -147,89 +147,86 @@ class BaseQueryTableViewController: BaseViewController {
             tableView.reloadData()
         }
         if let query = queryForTable() {
-            query.page = page
-            query.skip = skip
-            query.limit = limit
             
             objectsWillLoad()
-            query.request(completed: { (result) in
-                switch result {
-                case .success(let response, let otherResponse):
-                    if let total = otherResponse as? Int {
-                        self.totalObjects = total
-                    }
-                    if let numReason = otherResponse as? Int {
-                        self.numReason = numReason
-                    }
-                    
-                    if let allObjects = response as? [BaseDataModel] {
-                        for object in allObjects {
-                            //  if !self.allObjects.contains(where: { self.enableCheckDuplicate && $0.objectId == object.objectId }) {
-                            self.allObjects.append(object)
-                            //  }
-                            //self.allObjects.append(object)
-                        }
-                        
-                        
-                        if self.allObjects.count > 0 {
-                            if allObjects.count > 0 {
-                                self.skip = (self.page + 1) * self.limit
-                                self.page += 1
-                                self.contentState = .hasContent
-                            } else {
-                                self.objectsDidLoad(error: true)
-                            }
-                            
-                            if self.allObjects.count % self.limit != 0 || allObjects.count.isZero() || self.allObjects.count == self.totalObjects{
-                                self.allowLoadMore = false
-                                self.tableView.setFooterNoMoreData()
-                                self.tableView.endFooterRefreshingWithNoMoreData()
-                            }
-                        }
-                        if self.allObjects.count < self.limit
-                        {
-                            self.allowLoadMore = false
-                        }
-                        self.objectsDidLoad()
-                    } else if let object = response as? BaseDataModel {
-                        self.tableView.endHeaderRefreshing()
-                        self.isObject = true
-                        self.object = object
-                        self.allObjects.append(object)
-                        self.contentState = .hasContent
-                        self.objectsDidLoad(error: false)
-                        if self.limit == 1 {
-                            self.allowLoadMore = false
-                            self.tableView.setFooterNoMoreData()
-                            self.tableView.endFooterRefreshingWithNoMoreData()
-                        }
-                    } else {
-                        self.objectsDidLoad(error: true)
-                    }
-                    self.objectsDidLoad(rawResponse: response)
-                    
-                case .networkError():
-                    self.allObjects = self.tmpAllObjects
-                    self.contentState = .hasContent
-                    break
-                default:
-                    if self.allObjects.count.isZero() {
-                        self.contentState = .error
-                    } else {
-                        self.contentState = .hasContent
-                    }
-                    
-                    self.objectsDidLoad(error: true)
-                    self.objectsDidLoad(rawResponse: result)
-                }
-                
-                if self.contentState == .loading, self.allObjects.count.isZero() {
-                    self.contentState = .empty
-                }
-                //End refresh on TableView:
-                self.tableView.endHeaderRefreshing()
-                self.tableView.endFooterRefreshing()
-            })
+//            query.request(completed: { (result) in
+//                switch result {
+//                case .success(let response, let otherResponse):
+//                    if let total = otherResponse as? Int {
+//                        self.totalObjects = total
+//                    }
+//                    if let numReason = otherResponse as? Int {
+//                        self.numReason = numReason
+//                    }
+//
+//                    if let allObjects = response as? [BaseDataModel] {
+//                        for object in allObjects {
+//                            //  if !self.allObjects.contains(where: { self.enableCheckDuplicate && $0.objectId == object.objectId }) {
+//                            self.allObjects.append(object)
+//                            //  }
+//                            //self.allObjects.append(object)
+//                        }
+//
+//
+//                        if self.allObjects.count > 0 {
+//                            if allObjects.count > 0 {
+//                                self.skip = (self.page + 1) * self.limit
+//                                self.page += 1
+//                                self.contentState = .hasContent
+//                            } else {
+//                                self.objectsDidLoad(error: true)
+//                            }
+//
+//                            if self.allObjects.count % self.limit != 0 || allObjects.count.isZero() || self.allObjects.count == self.totalObjects{
+//                                self.allowLoadMore = false
+//                                self.tableView.setFooterNoMoreData()
+//                                self.tableView.endFooterRefreshingWithNoMoreData()
+//                            }
+//                        }
+//                        if self.allObjects.count < self.limit
+//                        {
+//                            self.allowLoadMore = false
+//                        }
+//                        self.objectsDidLoad()
+//                    } else if let object = response as? BaseDataModel {
+//                        self.tableView.endHeaderRefreshing()
+//                        self.isObject = true
+//                        self.object = object
+//                        self.allObjects.append(object)
+//                        self.contentState = .hasContent
+//                        self.objectsDidLoad(error: false)
+//                        if self.limit == 1 {
+//                            self.allowLoadMore = false
+//                            self.tableView.setFooterNoMoreData()
+//                            self.tableView.endFooterRefreshingWithNoMoreData()
+//                        }
+//                    } else {
+//                        self.objectsDidLoad(error: true)
+//                    }
+//                    self.objectsDidLoad(rawResponse: response)
+//
+//                case .networkError():
+//                    self.allObjects = self.tmpAllObjects
+//                    self.contentState = .hasContent
+//                    break
+//                default:
+//                    if self.allObjects.count.isZero() {
+//                        self.contentState = .error
+//                    } else {
+//                        self.contentState = .hasContent
+//                    }
+//
+//                    self.objectsDidLoad(error: true)
+//                    self.objectsDidLoad(rawResponse: result)
+//                }
+//
+//                if self.contentState == .loading, self.allObjects.count.isZero() {
+//                    self.contentState = .empty
+//                }
+//                //End refresh on TableView:
+//                self.tableView.endHeaderRefreshing()
+//                self.tableView.endFooterRefreshing()
+//            })
         }
     }
     

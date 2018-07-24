@@ -11,3 +11,4 @@ import Alamofire
 protocol IApiMethod {
     func methodType ()-> HTTPMethod
 }
+

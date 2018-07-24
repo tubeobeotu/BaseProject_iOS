@@ -9,5 +9,17 @@
 import Foundation
 import SwiftyJSON
 protocol IApiOutput {
-    func getJSON() -> JSON
+    func getRespose() -> Data
+}
+
+enum APIResult {
+    case success(Any?, Any?)
+    case failure(IError)
+    case timedOut(IError)
+    case networkError(IError)
+}
+
+enum APICallerResult<T>{
+    case success(T?)
+    case failure(IError)
 }

@@ -13,6 +13,6 @@ protocol IRepository{
     func delete(entity: T)
     func update(entity: T)
     func delete(query: IQueryable)
-    func update(query: IQueryable)
+//    func update(query: IQueryable)
     func query(query: IQueryable) -> [T]
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 protocol IApi {
-    static func timeOut() -> TimeInterval
     func fullUrl() -> URL?
     func baseUrlString() -> String
     func contextPathString() -> String
@@ -20,8 +19,6 @@ protocol IApi {
     func multipartBody() -> [Any]?
     func parameterEncoding() -> Any
     func headerFields() -> [String: String]?
-    func uploadFiles() -> [IApiUploadFile]?
-    
+    func uploadFiles() -> [IApiUploadFile]?    
     func response(data: IApiOutput) -> Any?
-    func request(completed: ((APIResult) -> Void)?)
 }
