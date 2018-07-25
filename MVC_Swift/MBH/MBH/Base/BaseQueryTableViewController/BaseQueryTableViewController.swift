@@ -73,7 +73,7 @@ class BaseQueryTableViewController: BaseViewController {
     var loadingView: UIView {
         get {
             if loadingViewValue == nil {
-                loadingViewValue = DefaultLoadingView.loadFromNib()
+                loadingViewValue = DefaultLoadingView()
             }
             
             return loadingViewValue!

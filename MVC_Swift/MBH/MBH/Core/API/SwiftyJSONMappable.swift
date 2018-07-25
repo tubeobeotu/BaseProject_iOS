@@ -5,7 +5,7 @@
 import SwiftyJSON
 import Foundation
 protocol SwiftyJSONMappable {
-    init?(byJSON json: JSON)
+    static func setup(byJSON json: JSON) -> SwiftyJSONMappable?
 }
 
 extension Array where Element: SwiftyJSONMappable {
@@ -13,12 +13,13 @@ extension Array where Element: SwiftyJSONMappable {
     init(byJSON json: JSON) {
         self.init()
         if json.type == .null { return }
-        
+        var tmpArray = [SwiftyJSONMappable]()
         for item in json.arrayValue {
-            if let object = Element.init(byJSON: item) {
-                self.append(object)
+            if let object = Element.setup(byJSON: item) {
+                tmpArray.append(object)
             }
         }
+        self = tmpArray as! Array<Element>
     }
     
     init(byString string: String, key: String = "") {
@@ -27,11 +28,13 @@ extension Array where Element: SwiftyJSONMappable {
         if !key.isEmpty { json = json[key] }
         if json.type == .null { return }
         
+        var tmpArray = [SwiftyJSONMappable]()
         for item in json.arrayValue {
-            if let object = Element.init(byJSON: item) {
-                self.append(object)
+            if let object = Element.setup(byJSON: item) {
+                tmpArray.append(object)
             }
         }
+        self = tmpArray as! Array<Element>
     }
 }
 

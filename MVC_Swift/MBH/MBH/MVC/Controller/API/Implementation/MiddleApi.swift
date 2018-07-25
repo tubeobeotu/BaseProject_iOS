@@ -31,7 +31,7 @@ class MiddleApi<T: SwiftyJSONMappable>:IMiddleApi {
         if json is Data{
             do {
                 let rawJson = try JSON(data: json as! Data)
-                return T(byJSON: rawJson)!
+                return T.setup(byJSON: rawJson) as! T
             } catch {
                 return BaseDataModel() as! T
             }

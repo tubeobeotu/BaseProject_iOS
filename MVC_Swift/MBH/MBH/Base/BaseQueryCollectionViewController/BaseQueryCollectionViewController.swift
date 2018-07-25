@@ -39,7 +39,7 @@ class BaseQueryCollectionViewController: BaseViewController {
     }
     
     lazy var loadingView: UIView = {
-        let loadingView = DefaultLoadingView.loadFromNib()
+        let loadingView = DefaultLoadingView()
         loadingView.frame = self.collectionView.bounds
         self.collectionView.addSubview(loadingView)
         return loadingView

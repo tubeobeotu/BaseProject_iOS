@@ -95,6 +95,9 @@ class BaseRequest {
         
         if let _ = requestObject.uploadFiles() {
             //request multiple parts
+            if(requestObject.showLoading() == true){
+                AppObject.shared.appState = .loading
+            }
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             sessionManager.upload(multipartFormData: { (form) in
                 // Add images with multipartBody
@@ -126,6 +129,9 @@ class BaseRequest {
                 }
             },usingThreshold:UInt64.init() , to: requestObject.fullUrl()! as URLConvertible, method:requestObject.method().methodType(), headers: requestObject.headerFields(), encodingCompletion: { (result) in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                if(requestObject.showLoading() == true){
+                    AppObject.shared.appState = .done
+                }
                 switch result {
                 case .success(let request, _, _):
                     request.responseJSON(completionHandler: { (responseObject) in
@@ -166,6 +172,9 @@ class BaseRequest {
             })
         } else {
             //normal request
+            if(requestObject.showLoading() == true){
+                AppObject.shared.appState = .loading
+            }
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             let method = requestObject.method().methodType()
             let params = requestObject.parameters()
@@ -175,6 +184,9 @@ class BaseRequest {
             
             sessionManager.request(url!, method: method, parameters: params, encoding: encoding as! ParameterEncoding, headers: header).response { (result) in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                if(requestObject.showLoading() == true){
+                    AppObject.shared.appState = .done
+                }
                 isTimedOut = false
                 if let resultResponse = result.response {
                     if let data = result.data {

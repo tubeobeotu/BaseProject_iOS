@@ -19,6 +19,10 @@ class ApiLoginRouter: BaseRouter, IApi{
     init(endpoint: EZLoginEnpoint) {
         self.endpoint = endpoint
     }
+    
+    func showLoading() -> Bool {
+        return true
+    }
     override func path() -> String {
         switch endpoint {
         case .login(_, _, _):

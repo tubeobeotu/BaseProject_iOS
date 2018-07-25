@@ -21,4 +21,5 @@ protocol IApi {
     func headerFields() -> [String: String]?
     func uploadFiles() -> [IApiUploadFile]?    
     func response(data: IApiOutput) -> Any?
+    func showLoading() -> Bool
 }
