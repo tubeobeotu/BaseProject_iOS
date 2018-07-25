@@ -11,8 +11,6 @@
 		2F326EA72106C113007D5276 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EA62106C113007D5276 /* BaseDataModel.swift */; };
 		2F326EA92106C13C007D5276 /* JSONMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EA82106C13C007D5276 /* JSONMappable.swift */; };
 		2F326EAF2106C1CE007D5276 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EAE2106C1CE007D5276 /* ServerConfig.swift */; };
-		2F326EB32106DF3F007D5276 /* ApiLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EB22106DF3F007D5276 /* ApiLoginRouter.swift */; };
-		2F326EB92106F0FB007D5276 /* ApiLoginCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EB82106F0FB007D5276 /* ApiLoginCaller.swift */; };
 		2F326EBD21070722007D5276 /* AppObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EBC21070721007D5276 /* AppObject.swift */; };
 		2F326EC221070886007D5276 /* EZUserLocalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EC021070886007D5276 /* EZUserLocalModel.swift */; };
 		2F326EC321070886007D5276 /* EZTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EC121070886007D5276 /* EZTokenModel.swift */; };
@@ -105,6 +103,9 @@
 		2FD1C12F2108847200A958AA /* BaseSqlRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C12E2108847200A958AA /* BaseSqlRepository.swift */; };
 		2FD1C1312108871500A958AA /* ILocalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C1302108871500A958AA /* ILocalModel.swift */; };
 		2FD1C1332108888300A958AA /* MiddleSqlRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C1322108888300A958AA /* MiddleSqlRepository.swift */; };
+		2FD1C13721088CC600A958AA /* ApiLoginCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13521088CC600A958AA /* ApiLoginCaller.swift */; };
+		2FD1C13821088CC600A958AA /* ApiLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13621088CC600A958AA /* ApiLoginRouter.swift */; };
+		2FD1C13A21088CDF00A958AA /* EZLoginBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13921088CDF00A958AA /* EZLoginBusiness.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -133,8 +134,6 @@
 		2F326EA62106C113007D5276 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
 		2F326EA82106C13C007D5276 /* JSONMappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMappable.swift; sourceTree = "<group>"; };
 		2F326EAE2106C1CE007D5276 /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
-		2F326EB22106DF3F007D5276 /* ApiLoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLoginRouter.swift; sourceTree = "<group>"; };
-		2F326EB82106F0FB007D5276 /* ApiLoginCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLoginCaller.swift; sourceTree = "<group>"; };
 		2F326EBC21070721007D5276 /* AppObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppObject.swift; sourceTree = "<group>"; };
 		2F326EC021070886007D5276 /* EZUserLocalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZUserLocalModel.swift; sourceTree = "<group>"; };
 		2F326EC121070886007D5276 /* EZTokenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZTokenModel.swift; sourceTree = "<group>"; };
@@ -223,6 +222,9 @@
 		2FD1C12E2108847200A958AA /* BaseSqlRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSqlRepository.swift; sourceTree = "<group>"; };
 		2FD1C1302108871500A958AA /* ILocalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILocalModel.swift; sourceTree = "<group>"; };
 		2FD1C1322108888300A958AA /* MiddleSqlRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleSqlRepository.swift; sourceTree = "<group>"; };
+		2FD1C13521088CC600A958AA /* ApiLoginCaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiLoginCaller.swift; sourceTree = "<group>"; };
+		2FD1C13621088CC600A958AA /* ApiLoginRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiLoginRouter.swift; sourceTree = "<group>"; };
+		2FD1C13921088CDF00A958AA /* EZLoginBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZLoginBusiness.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -725,8 +727,8 @@
 		2F7680E52105DA1F0086F636 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				2F326EB22106DF3F007D5276 /* ApiLoginRouter.swift */,
-				2F326EB82106F0FB007D5276 /* ApiLoginCaller.swift */,
+				2FD1C13421088CC600A958AA /* API */,
+				2FD1C13921088CDF00A958AA /* EZLoginBusiness.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -790,6 +792,15 @@
 				2FD1C1322108888300A958AA /* MiddleSqlRepository.swift */,
 			);
 			path = Implementation;
+			sourceTree = "<group>";
+		};
+		2FD1C13421088CC600A958AA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2FD1C13521088CC600A958AA /* ApiLoginCaller.swift */,
+				2FD1C13621088CC600A958AA /* ApiLoginRouter.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -887,12 +898,12 @@
 				2F7680F32105E0560086F636 /* IApiQueryable.swift in Sources */,
 				2F326EF72108235C007D5276 /* DefaultLoadingView.swift in Sources */,
 				2F66DC322102D41900DC95DD /* BaseInputViewController.swift in Sources */,
+				2FD1C13721088CC600A958AA /* ApiLoginCaller.swift in Sources */,
 				2F66DCA92102D9FE00DC95DD /* Date+Extension.swift in Sources */,
 				2F66DCAE2102D9FE00DC95DD /* Number+Extension.swift in Sources */,
 				2F66DCBB2102D9FE00DC95DD /* VTextView.swift in Sources */,
 				2F66DCAA2102D9FE00DC95DD /* Dictionary+Extension.swift in Sources */,
 				2FD1C12C2108488B00A958AA /* IJON.swift in Sources */,
-				2F326EB32106DF3F007D5276 /* ApiLoginRouter.swift in Sources */,
 				2F66DC282102D41900DC95DD /* BaseNavigationController.swift in Sources */,
 				2F66DCBA2102D9FE00DC95DD /* PhotoManager.swift in Sources */,
 				2F7680EF2105DFB50086F636 /* IApi.swift in Sources */,
@@ -922,11 +933,11 @@
 				2F66DC2F2102D41900DC95DD /* BaseTabBarController.swift in Sources */,
 				2F66DCB72102D9FE00DC95DD /* UIViewController+Extension.swift in Sources */,
 				2F66DCB22102D9FE00DC95DD /* UIColor+Extension.swift in Sources */,
+				2FD1C13821088CC600A958AA /* ApiLoginRouter.swift in Sources */,
 				2F7680A3210593520086F636 /* DefaultEmptyView.swift in Sources */,
 				2F7680A5210593520086F636 /* DefaultErrorView.swift in Sources */,
 				2F66DC2E2102D41900DC95DD /* BaseCustomNibView.swift in Sources */,
 				2F66DCB02102D9FE00DC95DD /* TableView+Util.swift in Sources */,
-				2F326EB92106F0FB007D5276 /* ApiLoginCaller.swift in Sources */,
 				2F326EA92106C13C007D5276 /* JSONMappable.swift in Sources */,
 				2F7680CF2105B5710086F636 /* Constant.swift in Sources */,
 				2F66DC2C2102D41900DC95DD /* BaseQueryCollectionViewController.swift in Sources */,
@@ -944,6 +955,7 @@
 				2F66DC2D2102D41900DC95DD /* BaseQueryTableViewController.swift in Sources */,
 				2F7680EC2105DB5E0086F636 /* IQueryable.swift in Sources */,
 				2F7680EA2105DADC0086F636 /* IRepository.swift in Sources */,
+				2FD1C13A21088CDF00A958AA /* EZLoginBusiness.swift in Sources */,
 				2F326ECE21071996007D5276 /* EZLoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

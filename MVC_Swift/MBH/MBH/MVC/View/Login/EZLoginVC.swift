@@ -9,7 +9,8 @@
 import UIKit
 
 class EZLoginVC: BaseViewController {
-
+    lazy var caller = ApiLoginCaller()
+    lazy var business = EZLoginBusiness()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,10 +22,11 @@ class EZLoginVC: BaseViewController {
     }
     
     func login(userName: String, password: String){
-        let test = ApiLoginCaller()
-        test.login(type: Token.self, username: userName, password: password) { (result) in
+    
+        caller.login(type: Token.self, username: userName, password: password) { (result) in
             switch(result){
             case .success(let model):
+               self.business.doSomeThing()
                 break
             case .failure(let error):
                 self.handleError(error: error)
