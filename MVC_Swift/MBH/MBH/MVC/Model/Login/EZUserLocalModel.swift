@@ -8,7 +8,7 @@
 
 import Foundation
 import RealmSwift
-class EZUserLocalModel: Object {
+class EZUserLocalModel: BaseDataModel, ILocalModel {
     @objc dynamic var localId = ""
     @objc dynamic var accessToken = ""
     @objc dynamic var refreshToken = ""
@@ -65,5 +65,9 @@ class EZUserLocalModel: Object {
         self.updatedBy = updatedBy
         self.status = status
         self.streetId = streetId
+    }
+    
+    func getLocalId() -> String {
+        return self.localId
     }
 }

@@ -11,8 +11,7 @@ protocol IRepository{
     associatedtype T
     func insert(entity: T)
     func delete(entity: T)
-    func update(entity: T)
+    func update(entity: T, identifierNane: String, identifierValue: String)
     func delete(query: IQueryable)
-//    func update(query: IQueryable)
     func query(query: IQueryable) -> [T]
 }

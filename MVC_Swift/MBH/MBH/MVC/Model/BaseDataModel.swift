@@ -4,9 +4,8 @@
 import Foundation
 import SwiftyJSON
 import RealmSwift
-import Realm
 
-class BaseDataModel: Object, JSONMappable {
+class BaseDataModel: Object, JSONMappable{
     static func setup(byJSON json: IJSON) -> JSONMappable? {
         let baseModel = self.init(byJSON: json)
         return baseModel

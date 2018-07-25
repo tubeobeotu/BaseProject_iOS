@@ -102,6 +102,9 @@
 		2FD1C128210830BA00A958AA /* PublicFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C127210830BA00A958AA /* PublicFunc.swift */; };
 		2FD1C12A2108484D00A958AA /* EZJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C1292108484D00A958AA /* EZJSON.swift */; };
 		2FD1C12C2108488B00A958AA /* IJON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C12B2108488B00A958AA /* IJON.swift */; };
+		2FD1C12F2108847200A958AA /* BaseSqlRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C12E2108847200A958AA /* BaseSqlRepository.swift */; };
+		2FD1C1312108871500A958AA /* ILocalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C1302108871500A958AA /* ILocalModel.swift */; };
+		2FD1C1332108888300A958AA /* MiddleSqlRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C1322108888300A958AA /* MiddleSqlRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -217,6 +220,9 @@
 		2FD1C127210830BA00A958AA /* PublicFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFunc.swift; sourceTree = "<group>"; };
 		2FD1C1292108484D00A958AA /* EZJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZJSON.swift; sourceTree = "<group>"; };
 		2FD1C12B2108488B00A958AA /* IJON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IJON.swift; sourceTree = "<group>"; };
+		2FD1C12E2108847200A958AA /* BaseSqlRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSqlRepository.swift; sourceTree = "<group>"; };
+		2FD1C1302108871500A958AA /* ILocalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILocalModel.swift; sourceTree = "<group>"; };
+		2FD1C1322108888300A958AA /* MiddleSqlRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleSqlRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -728,6 +734,7 @@
 		2F7680E62105DA1F0086F636 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				2FD1C12D2108846300A958AA /* Implementation */,
 				2F326EE6210721DD007D5276 /* Login */,
 				2F326EE4210720E8007D5276 /* Implementation */,
 			);
@@ -748,6 +755,7 @@
 			children = (
 				2F7680E92105DADC0086F636 /* IRepository.swift */,
 				2F7680EB2105DB5E0086F636 /* IQueryable.swift */,
+				2FD1C1302108871500A958AA /* ILocalModel.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -773,6 +781,15 @@
 				2FD1C12321082B2400A958AA /* Swinject.framework */,
 			);
 			path = Swinject;
+			sourceTree = "<group>";
+		};
+		2FD1C12D2108846300A958AA /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				2FD1C12E2108847200A958AA /* BaseSqlRepository.swift */,
+				2FD1C1322108888300A958AA /* MiddleSqlRepository.swift */,
+			);
+			path = Implementation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -879,16 +896,19 @@
 				2F66DC282102D41900DC95DD /* BaseNavigationController.swift in Sources */,
 				2F66DCBA2102D9FE00DC95DD /* PhotoManager.swift in Sources */,
 				2F7680EF2105DFB50086F636 /* IApi.swift in Sources */,
+				2FD1C1312108871500A958AA /* ILocalModel.swift in Sources */,
 				2F326EDD2107205F007D5276 /* BaseCaller.swift in Sources */,
 				2F7680A9210593520086F636 /* LoadingView.swift in Sources */,
 				2F66DCB82102D9FE00DC95DD /* BaseAlertView.swift in Sources */,
 				2F66DC332102D41900DC95DD /* BaseViewController.swift in Sources */,
+				2FD1C12F2108847200A958AA /* BaseSqlRepository.swift in Sources */,
 				2F66DCAB2102D9FE00DC95DD /* Float+Extension.swift in Sources */,
 				2F326EC521070D28007D5276 /* IError.swift in Sources */,
 				2F66DC302102D41900DC95DD /* BaseTableViewCell.swift in Sources */,
 				2F326EE32107205F007D5276 /* UploadFile.swift in Sources */,
 				2F66DB532101E62C00DC95DD /* ViewController.swift in Sources */,
 				2F66DCB92102D9FE00DC95DD /* BaseLoading.swift in Sources */,
+				2FD1C1332108888300A958AA /* MiddleSqlRepository.swift in Sources */,
 				2FD1C128210830BA00A958AA /* PublicFunc.swift in Sources */,
 				2F7680F52105E24C0086F636 /* IApiOutput.swift in Sources */,
 				2F326EE821072215007D5276 /* UserSqlRepository.swift in Sources */,
