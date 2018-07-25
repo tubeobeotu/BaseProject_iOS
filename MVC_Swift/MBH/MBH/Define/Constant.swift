@@ -6,6 +6,7 @@ struct Constant {
 	static let SCREEN_WIDTH_PORTRAIT = UIScreen.main.bounds.size.width
 	static let SCREEN_HEIGHT_PORTRAIT = UIScreen.main.bounds.size.height
 	static let NUMBER_RECORDS_PER_PAGE = 10
+    static let DEBUG_MODE = true
 }
 
 extension Constant {

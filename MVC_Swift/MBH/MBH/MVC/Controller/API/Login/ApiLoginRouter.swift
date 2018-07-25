@@ -21,7 +21,14 @@ class ApiLoginRouter: BaseRouter, IApi{
     }
     
     func showLoading() -> Bool {
-        return true
+        switch endpoint {
+        case .login(_, _, _):
+            return true
+        case .getUserInfo():
+            return true
+        case .changePassword(_, _):
+            return true
+        }
     }
     override func path() -> String {
         switch endpoint {

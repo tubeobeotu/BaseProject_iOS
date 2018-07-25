@@ -16,27 +16,14 @@ class Token: BaseDataModel{
     var expiresIn = ""
     var scope = ""
     
-    override func mapping(json: JSON) {
+    override func mapping(json: IJSON) {
         super.mapping(json: json)
-        if json["access_token"].exists() {
-            accessToken = json["access_token"].stringValue
-        }
-        
-        if json["refresh_token"].exists() {
-            refreshToken = json["refresh_token"].stringValue
-        }
-        
-        if json["token_type"].exists() {
-            type = json["token_type"].stringValue
-        }
-        
-        if json["expires_in"].exists() {
-            expiresIn = json["expires_in"].stringValue
-        }
-        
-        if json["scope"].exists() {
-            scope = json["scope"].stringValue
-        }
+      
+        accessToken =  json.getStringValue(key: "access_token")
+        refreshToken = json.getStringValue(key: "refresh_token")
+        type =  json.getStringValue(key: "token_type")
+        expiresIn =  json.getStringValue(key: "expires_in")
+        scope =  json.getStringValue(key: "scope")
     }
     
     func setObject(token: Token){

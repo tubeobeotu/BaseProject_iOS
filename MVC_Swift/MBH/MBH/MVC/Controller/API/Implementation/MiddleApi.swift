@@ -14,27 +14,23 @@ protocol IMiddleApi {
     func getModel(json: Any) -> T
 }
 
-class MiddleApi<T: SwiftyJSONMappable>:IMiddleApi {
+class MiddleApi<T: JSONMappable>:IMiddleApi {
     func getModels(json: Any) -> [T] {
         if json is Data{
-            do {
-                let rawJson = try JSON(data: json as! Data)
-                return [T](byJSON: rawJson)
-            } catch {
-                return []
-            }
+            var ezJson = EZJSON()
+            ezJson.setJSON(json: json as! Data)
+            print(ezJson)
+            return [T](byJSON: ezJson)
         }
         return []
     }
     
     func getModel(json: Any) -> T {
         if json is Data{
-            do {
-                let rawJson = try JSON(data: json as! Data)
-                return T.setup(byJSON: rawJson) as! T
-            } catch {
-                return BaseDataModel() as! T
-            }
+            var ezJson = EZJSON()
+            ezJson.setJSON(json: json as! Data)
+            print(ezJson)
+            return T.setup(byJSON: ezJson) as! T
         }
         return BaseDataModel() as! T
     }

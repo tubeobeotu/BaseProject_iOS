@@ -17,7 +17,7 @@ class EZLoginVC: BaseViewController {
     }
     
     @IBAction func login(_ sender: Any) {
-        self.login(userName: "tunv@ezsolution.vn", password: "Tu123456")
+        self.login(userName: "tunv@ezsolution.vn111", password: "Tu123456")
     }
     
     func login(userName: String, password: String){
@@ -25,7 +25,6 @@ class EZLoginVC: BaseViewController {
         test.login(type: Token.self, username: userName, password: password) { (result) in
             switch(result){
             case .success(let model):
-                print(model?.accessToken ?? "")
                 break
             case .failure(let error):
                 self.handleError(error: error)

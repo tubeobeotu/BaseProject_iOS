@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F326EA32105EB8D007D5276 /* IApiMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EA22105EB8D007D5276 /* IApiMethod.swift */; };
 		2F326EA72106C113007D5276 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EA62106C113007D5276 /* BaseDataModel.swift */; };
-		2F326EA92106C13C007D5276 /* SwiftyJSONMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EA82106C13C007D5276 /* SwiftyJSONMappable.swift */; };
+		2F326EA92106C13C007D5276 /* JSONMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EA82106C13C007D5276 /* JSONMappable.swift */; };
 		2F326EAF2106C1CE007D5276 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EAE2106C1CE007D5276 /* ServerConfig.swift */; };
 		2F326EB32106DF3F007D5276 /* ApiLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EB22106DF3F007D5276 /* ApiLoginRouter.swift */; };
 		2F326EB92106F0FB007D5276 /* ApiLoginCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F326EB82106F0FB007D5276 /* ApiLoginCaller.swift */; };
@@ -86,7 +86,6 @@
 		2F7680C62105B4C70086F636 /* QBImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7680882105912C0086F636 /* QBImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F7680C72105B4CB0086F636 /* PullToRefreshKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F768090210592A40086F636 /* PullToRefreshKit.framework */; };
 		2F7680C82105B4CB0086F636 /* PullToRefreshKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F768090210592A40086F636 /* PullToRefreshKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2F7680C92105B4CF0086F636 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7680BE2105B1A70086F636 /* SwiftyJSON.framework */; };
 		2F7680CA2105B4CF0086F636 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7680BE2105B1A70086F636 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F7680CF2105B5710086F636 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7680CC2105B5710086F636 /* Constant.swift */; };
 		2F7680D12105B5710086F636 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7680CE2105B5710086F636 /* Storyboards.swift */; };
@@ -97,6 +96,12 @@
 		2F7680F32105E0560086F636 /* IApiQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7680F22105E0560086F636 /* IApiQueryable.swift */; };
 		2F7680F52105E24C0086F636 /* IApiOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7680F42105E24C0086F636 /* IApiOutput.swift */; };
 		2F7680F72105E3140086F636 /* IApiUploadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7680F62105E3140086F636 /* IApiUploadFile.swift */; };
+		2FD1C12421082B2400A958AA /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1C12321082B2400A958AA /* Swinject.framework */; };
+		2FD1C12521082F7D00A958AA /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1C12321082B2400A958AA /* Swinject.framework */; };
+		2FD1C12621082F7D00A958AA /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1C12321082B2400A958AA /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2FD1C128210830BA00A958AA /* PublicFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C127210830BA00A958AA /* PublicFunc.swift */; };
+		2FD1C12A2108484D00A958AA /* EZJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C1292108484D00A958AA /* EZJSON.swift */; };
+		2FD1C12C2108488B00A958AA /* IJON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C12B2108488B00A958AA /* IJON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +116,7 @@
 				2F326EF02107241C007D5276 /* RealmSwift.framework in Embed Frameworks */,
 				2F7680C82105B4CB0086F636 /* PullToRefreshKit.framework in Embed Frameworks */,
 				2F7680C42105B4C50086F636 /* DropDown.framework in Embed Frameworks */,
+				2FD1C12621082F7D00A958AA /* Swinject.framework in Embed Frameworks */,
 				2F7680C62105B4C70086F636 /* QBImagePicker.framework in Embed Frameworks */,
 				2F7680CA2105B4CF0086F636 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
@@ -122,7 +128,7 @@
 /* Begin PBXFileReference section */
 		2F326EA22105EB8D007D5276 /* IApiMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IApiMethod.swift; sourceTree = "<group>"; };
 		2F326EA62106C113007D5276 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
-		2F326EA82106C13C007D5276 /* SwiftyJSONMappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSONMappable.swift; sourceTree = "<group>"; };
+		2F326EA82106C13C007D5276 /* JSONMappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMappable.swift; sourceTree = "<group>"; };
 		2F326EAE2106C1CE007D5276 /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		2F326EB22106DF3F007D5276 /* ApiLoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLoginRouter.swift; sourceTree = "<group>"; };
 		2F326EB82106F0FB007D5276 /* ApiLoginCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLoginCaller.swift; sourceTree = "<group>"; };
@@ -207,6 +213,10 @@
 		2F7680F22105E0560086F636 /* IApiQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IApiQueryable.swift; sourceTree = "<group>"; };
 		2F7680F42105E24C0086F636 /* IApiOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IApiOutput.swift; sourceTree = "<group>"; };
 		2F7680F62105E3140086F636 /* IApiUploadFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IApiUploadFile.swift; sourceTree = "<group>"; };
+		2FD1C12321082B2400A958AA /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swinject.framework; sourceTree = "<group>"; };
+		2FD1C127210830BA00A958AA /* PublicFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFunc.swift; sourceTree = "<group>"; };
+		2FD1C1292108484D00A958AA /* EZJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZJSON.swift; sourceTree = "<group>"; };
+		2FD1C12B2108488B00A958AA /* IJON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IJON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,8 +229,9 @@
 				2F326EEF2107241C007D5276 /* RealmSwift.framework in Frameworks */,
 				2F7680C72105B4CB0086F636 /* PullToRefreshKit.framework in Frameworks */,
 				2F7680C32105B4C50086F636 /* DropDown.framework in Frameworks */,
+				2FD1C12521082F7D00A958AA /* Swinject.framework in Frameworks */,
+				2FD1C12421082B2400A958AA /* Swinject.framework in Frameworks */,
 				2F7680C52105B4C70086F636 /* QBImagePicker.framework in Frameworks */,
-				2F7680C92105B4CF0086F636 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +249,7 @@
 				2F326ED72107205F007D5276 /* EZError.swift */,
 				2F326ED82107205F007D5276 /* MiddleApi.swift */,
 				2F326EDA2107205F007D5276 /* UploadFile.swift */,
+				2FD1C1292108484D00A958AA /* EZJSON.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -386,6 +398,7 @@
 		2F66DC372102D68C00DC95DD /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2FD1C12221082B1E00A958AA /* Swinject */,
 				2F7680D22105B59C0086F636 /* Realm */,
 				2F7680B6210596440086F636 /* Alamofire */,
 				2F7680B0210594590086F636 /* DropDown */,
@@ -453,6 +466,7 @@
 				2F66DC992102D9FD00DC95DD /* UITextView+Util.swift */,
 				2F66DC9A2102D9FD00DC95DD /* UIView+Extension.swift */,
 				2F66DC9B2102D9FD00DC95DD /* UIViewController+Extension.swift */,
+				2FD1C127210830BA00A958AA /* PublicFunc.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -741,7 +755,8 @@
 		2F7680ED2105DF6B0086F636 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				2F326EA82106C13C007D5276 /* SwiftyJSONMappable.swift */,
+				2FD1C12B2108488B00A958AA /* IJON.swift */,
+				2F326EA82106C13C007D5276 /* JSONMappable.swift */,
 				2F7680EE2105DFB50086F636 /* IApi.swift */,
 				2F7680F22105E0560086F636 /* IApiQueryable.swift */,
 				2F7680F42105E24C0086F636 /* IApiOutput.swift */,
@@ -750,6 +765,14 @@
 				2F326EC421070D28007D5276 /* IError.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		2FD1C12221082B1E00A958AA /* Swinject */ = {
+			isa = PBXGroup;
+			children = (
+				2FD1C12321082B2400A958AA /* Swinject.framework */,
+			);
+			path = Swinject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -835,6 +858,7 @@
 				2F66DCB12102D9FE00DC95DD /* UIButton+Extensions.swift in Sources */,
 				2F66DCBD2102D9FE00DC95DD /* WIFI.swift in Sources */,
 				2F326EDC2107205F007D5276 /* ApiOutput.swift in Sources */,
+				2FD1C12A2108484D00A958AA /* EZJSON.swift in Sources */,
 				2F66DCB52102D9FE00DC95DD /* UITextView+Util.swift in Sources */,
 				2F326EA72106C113007D5276 /* BaseDataModel.swift in Sources */,
 				2F7680F72105E3140086F636 /* IApiUploadFile.swift in Sources */,
@@ -850,6 +874,7 @@
 				2F66DCAE2102D9FE00DC95DD /* Number+Extension.swift in Sources */,
 				2F66DCBB2102D9FE00DC95DD /* VTextView.swift in Sources */,
 				2F66DCAA2102D9FE00DC95DD /* Dictionary+Extension.swift in Sources */,
+				2FD1C12C2108488B00A958AA /* IJON.swift in Sources */,
 				2F326EB32106DF3F007D5276 /* ApiLoginRouter.swift in Sources */,
 				2F66DC282102D41900DC95DD /* BaseNavigationController.swift in Sources */,
 				2F66DCBA2102D9FE00DC95DD /* PhotoManager.swift in Sources */,
@@ -864,6 +889,7 @@
 				2F326EE32107205F007D5276 /* UploadFile.swift in Sources */,
 				2F66DB532101E62C00DC95DD /* ViewController.swift in Sources */,
 				2F66DCB92102D9FE00DC95DD /* BaseLoading.swift in Sources */,
+				2FD1C128210830BA00A958AA /* PublicFunc.swift in Sources */,
 				2F7680F52105E24C0086F636 /* IApiOutput.swift in Sources */,
 				2F326EE821072215007D5276 /* UserSqlRepository.swift in Sources */,
 				2F326EC321070886007D5276 /* EZTokenModel.swift in Sources */,
@@ -881,7 +907,7 @@
 				2F66DC2E2102D41900DC95DD /* BaseCustomNibView.swift in Sources */,
 				2F66DCB02102D9FE00DC95DD /* TableView+Util.swift in Sources */,
 				2F326EB92106F0FB007D5276 /* ApiLoginCaller.swift in Sources */,
-				2F326EA92106C13C007D5276 /* SwiftyJSONMappable.swift in Sources */,
+				2F326EA92106C13C007D5276 /* JSONMappable.swift in Sources */,
 				2F7680CF2105B5710086F636 /* Constant.swift in Sources */,
 				2F66DC2C2102D41900DC95DD /* BaseQueryCollectionViewController.swift in Sources */,
 				2F326EE02107205F007D5276 /* EZError.swift in Sources */,
@@ -1051,6 +1077,7 @@
 					"$(PROJECT_DIR)/MBH/Libs/Alamofire",
 					"$(PROJECT_DIR)/MBH/Libs/SwiftyJSON",
 					"$(PROJECT_DIR)/MBH/Libs/Realm",
+					"$(PROJECT_DIR)/MBH/Libs/Swinject",
 				);
 				INFOPLIST_FILE = MBH/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1076,6 +1103,7 @@
 					"$(PROJECT_DIR)/MBH/Libs/Alamofire",
 					"$(PROJECT_DIR)/MBH/Libs/SwiftyJSON",
 					"$(PROJECT_DIR)/MBH/Libs/Realm",
+					"$(PROJECT_DIR)/MBH/Libs/Swinject",
 				);
 				INFOPLIST_FILE = MBH/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

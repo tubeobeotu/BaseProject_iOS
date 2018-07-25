@@ -8,16 +8,16 @@
 
 import Foundation
 class BaseCaller {
-    func handleResult<T>(input: APIResult) -> APICallerResult<T>{
+    func handleResult<T>(type: T.Type, input: APIResult) -> APICallerResult<T?>{
         switch(input){
         case .success(let response, _):
-            return APICallerResult<T>.success(response as? T)
+            return .success(response as? T) 
         case .networkError(let error):
-            return APICallerResult<T>.failure(error)
+            return .failure(error)
         case .failure(let error):
-            return APICallerResult<T>.failure(error)
+            return .failure(error)
         case .timedOut(let error):
-            return APICallerResult<T>.failure(error)
+            return .failure(error)
         }
     }
 }

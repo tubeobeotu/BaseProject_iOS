@@ -10,11 +10,11 @@ import Foundation
 //completed: ((APICallerResult) -> Void)?
 class ApiLoginCaller: BaseCaller {
     var request = BaseRequest()
-    func login<T>(type: T.Type, username: String, password: String, grantType: String = "password", completed: ((APICallerResult<T>) -> Void)?){
+    func login<T>(type: T.Type, username: String, password: String, grantType: String = "password", completed: ((APICallerResult<T?>) -> Void)?){
         request.handleExpireToken = false
         let router = ApiLoginRouter.init(endpoint: .login(username: username, password: password, grantType: grantType))
         request.request(requestObject: router) { (result) in
-            completed?(self.handleResult(input: result) as APICallerResult<T>)
+            completed?(self.handleResult(type: T.self, input: result))
         }
     }
     func getUserInfo(){
