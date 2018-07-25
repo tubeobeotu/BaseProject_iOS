@@ -58,7 +58,7 @@ class AppObject{
     private var loadingView: UIView {
         get {
             if loadingViewValue == nil {
-                loadingViewValue = DefaultLoadingView()
+                loadingViewValue = DefaultLoadingView().loadViewFromNib()
             }
             
             return loadingViewValue!
@@ -72,7 +72,7 @@ class AppObject{
             let screenSize = UIScreen.main.bounds.size
             let window = UIApplication.shared.keyWindow
             loadingView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
-            window?.addSubview(loadingView)
+            window!.addSubview(loadingView)
         }
         
     }

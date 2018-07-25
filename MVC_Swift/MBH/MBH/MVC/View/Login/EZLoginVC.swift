@@ -12,8 +12,12 @@ class EZLoginVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.login(userName: "tunv@ezsolution.vn", password: "Tu123456")
+        
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func login(_ sender: Any) {
+        self.login(userName: "tunv@ezsolution.vn", password: "Tu123456")
     }
     
     func login(userName: String, password: String){

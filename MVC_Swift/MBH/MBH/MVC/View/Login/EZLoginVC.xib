@@ -20,17 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADs-pA-zPd">
-                    <rect key="frame" x="166" y="323" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77L-B1-Z1i">
+                    <rect key="frame" x="168.5" y="318.5" width="38" height="30"/>
+                    <state key="normal" title="Login"/>
+                    <connections>
+                        <action selector="login:" destination="-1" eventType="touchUpInside" id="RM4-9X-F6m"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ADs-pA-zPd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="bzI-cK-3jM"/>
-                <constraint firstItem="ADs-pA-zPd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jXT-K3-KXe"/>
+                <constraint firstItem="77L-B1-Z1i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="7Uk-j7-TSF"/>
+                <constraint firstItem="77L-B1-Z1i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vDL-MZ-nQq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
