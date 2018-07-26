@@ -86,7 +86,7 @@ class BaseRequest {
         
         
         if(handleExpireToken == true){
-            let handle = OAuth2Handler.init(clientID: OAuth.clientId, baseURLString: "\(requestObject.baseUrlString()):\(requestObject.portString())", accessToken: Token.share.accessToken, refreshToken: Token.share.refreshToken)
+            let handle = OAuth2Handler.init(clientID: OAuth.clientId, baseURLString: "\(requestObject.baseUrlString()):\(requestObject.portString())", accessToken: EZTokenModel.share.accessToken, refreshToken: EZTokenModel.share.refreshToken)
             self.sessionManager.adapter = handle
             self.sessionManager.retrier = handle
         }else{
@@ -254,7 +254,7 @@ extension BaseRequest
 
 
 class OAuth2Handler: RequestAdapter, RequestRetrier {
-    private typealias RefreshCompletion = (_ succeeded: Bool, _ token: Token?) -> Void
+    private typealias RefreshCompletion = (_ succeeded: Bool, _ token: EZTokenModel?) -> Void
     
     private let sessionManager: SessionManager = {
         let configuration = URLSessionConfiguration.default
@@ -287,7 +287,7 @@ class OAuth2Handler: RequestAdapter, RequestRetrier {
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(baseURLString) {
             var urlRequest = urlRequest
-            urlRequest.setValue(Token.share.type + " " + accessToken, forHTTPHeaderField: "Authorization")
+            urlRequest.setValue(EZTokenModel.share.type + " " + accessToken, forHTTPHeaderField: "Authorization")
             return urlRequest
         }
         
@@ -346,13 +346,13 @@ class OAuth2Handler: RequestAdapter, RequestRetrier {
         sessionManager.request(urlString, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: header)
             .responseJSON { [weak self] response in
                 guard let strongSelf = self else { return }
-                let middleApi = MiddleApi<Token>()
+                let middleApi = MiddleApi<EZTokenModel>()
                 if
                     let json = response.data
                 {
                     let token = middleApi.getModel(json: json)
                     if(token.accessToken != ""){
-                        Token.share.setObject(token: token)
+                        EZTokenModel.share.setObject(token: token)
                         AppObject.shared.userInfo.accessToken = token.accessToken
                         AppObject.shared.userInfo.refreshToken = token.refreshToken
                         AppObject.shared.userInfo.tokenType = token.type

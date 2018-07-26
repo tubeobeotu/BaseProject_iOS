@@ -102,7 +102,7 @@ class ApiLoginRouter: BaseRouter, IApi{
     override  func response(data: IApiOutput) -> Any? {
         switch self.endpoint {
         case .login(_, _, _):
-           return MiddleApi<Token>().getModel(json: data.getRespose())
+           return MiddleApi<EZTokenModel>().getModel(json: data.getRespose())
         default:
             return MiddleApi<BaseDataModel>().getModel(json: data.getRespose())
         }

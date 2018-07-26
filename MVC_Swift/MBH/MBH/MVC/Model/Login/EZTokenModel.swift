@@ -8,8 +8,8 @@
 
 import Foundation
 import SwiftyJSON
-class Token: BaseDataModel{
-    static let share = Token()
+class EZTokenModel: BaseDataModel, ILocalModel{
+    static let share = EZTokenModel()
     var accessToken = ""
     var refreshToken = ""
     var type = ""
@@ -26,7 +26,7 @@ class Token: BaseDataModel{
         scope =  json.getStringValue(key: "scope")
     }
     
-    func setObject(token: Token){
+    func setObject(token: EZTokenModel){
         self.accessToken = token.accessToken
         self.refreshToken = token.refreshToken
         self.type = token.type
@@ -35,5 +35,9 @@ class Token: BaseDataModel{
         
         ///
         
+    }
+    
+    func getLocalId() -> String {
+        return "0"
     }
 }

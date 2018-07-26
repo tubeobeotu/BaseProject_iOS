@@ -106,6 +106,9 @@
 		2FD1C13721088CC600A958AA /* ApiLoginCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13521088CC600A958AA /* ApiLoginCaller.swift */; };
 		2FD1C13821088CC600A958AA /* ApiLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13621088CC600A958AA /* ApiLoginRouter.swift */; };
 		2FD1C13A21088CDF00A958AA /* EZLoginBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13921088CDF00A958AA /* EZLoginBusiness.swift */; };
+		2FD1C13D210965EF00A958AA /* IBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13C210965EF00A958AA /* IBusiness.swift */; };
+		2FD1C1402109662E00A958AA /* BaseBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13F2109662E00A958AA /* BaseBusiness.swift */; };
+		2FD1C142210966A400A958AA /* IEZLoginBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C141210966A400A958AA /* IEZLoginBusiness.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -225,6 +228,9 @@
 		2FD1C13521088CC600A958AA /* ApiLoginCaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiLoginCaller.swift; sourceTree = "<group>"; };
 		2FD1C13621088CC600A958AA /* ApiLoginRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiLoginRouter.swift; sourceTree = "<group>"; };
 		2FD1C13921088CDF00A958AA /* EZLoginBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZLoginBusiness.swift; sourceTree = "<group>"; };
+		2FD1C13C210965EF00A958AA /* IBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBusiness.swift; sourceTree = "<group>"; };
+		2FD1C13F2109662E00A958AA /* BaseBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBusiness.swift; sourceTree = "<group>"; };
+		2FD1C141210966A400A958AA /* IEZLoginBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEZLoginBusiness.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -718,6 +724,7 @@
 		2F7680E42105DA1F0086F636 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2FD1C13E2109661C00A958AA /* Business */,
 				2F326ED12107205F007D5276 /* Implementation */,
 				2F7680E52105DA1F0086F636 /* Login */,
 			);
@@ -729,6 +736,7 @@
 			children = (
 				2FD1C13421088CC600A958AA /* API */,
 				2FD1C13921088CDF00A958AA /* EZLoginBusiness.swift */,
+				2FD1C141210966A400A958AA /* IEZLoginBusiness.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -746,6 +754,7 @@
 		2F7680E72105DAA00086F636 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2FD1C13B210965DA00A958AA /* Business */,
 				2F7680ED2105DF6B0086F636 /* API */,
 				2F7680E82105DAB30086F636 /* Database */,
 			);
@@ -802,6 +811,23 @@
 			);
 			path = API;
 			sourceTree = "<group>";
+		};
+		2FD1C13B210965DA00A958AA /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				2FD1C13C210965EF00A958AA /* IBusiness.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		2FD1C13E2109661C00A958AA /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				2FD1C13F2109662E00A958AA /* BaseBusiness.swift */,
+			);
+			name = Business;
+			path = MBH/MVC/Controller/Business;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -897,6 +923,7 @@
 				2F7680E02105B7570086F636 /* LoginEnums.swift in Sources */,
 				2F7680F32105E0560086F636 /* IApiQueryable.swift in Sources */,
 				2F326EF72108235C007D5276 /* DefaultLoadingView.swift in Sources */,
+				2FD1C13D210965EF00A958AA /* IBusiness.swift in Sources */,
 				2F66DC322102D41900DC95DD /* BaseInputViewController.swift in Sources */,
 				2FD1C13721088CC600A958AA /* ApiLoginCaller.swift in Sources */,
 				2F66DCA92102D9FE00DC95DD /* Date+Extension.swift in Sources */,
@@ -929,7 +956,9 @@
 				2F66DCB62102D9FE00DC95DD /* UIView+Extension.swift in Sources */,
 				2F326EBD21070722007D5276 /* AppObject.swift in Sources */,
 				2F66DB512101E62C00DC95DD /* AppDelegate.swift in Sources */,
+				2FD1C1402109662E00A958AA /* BaseBusiness.swift in Sources */,
 				2F326EA32105EB8D007D5276 /* IApiMethod.swift in Sources */,
+				2FD1C142210966A400A958AA /* IEZLoginBusiness.swift in Sources */,
 				2F66DC2F2102D41900DC95DD /* BaseTabBarController.swift in Sources */,
 				2F66DCB72102D9FE00DC95DD /* UIViewController+Extension.swift in Sources */,
 				2F66DCB22102D9FE00DC95DD /* UIColor+Extension.swift in Sources */,
