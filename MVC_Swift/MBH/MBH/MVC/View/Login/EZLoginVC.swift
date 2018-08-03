@@ -22,26 +22,28 @@ class EZLoginVC: BaseViewController {
     }
     
     func login(userName: String, password: String){
-    
         caller.login(type: EZTokenModel.self, username: userName, password: password) {[weak self] (result) in
             switch(result){
             case .success(let model):
                 if let model = model{
-                    self?.saveToken(token: model!)
+                    self?.saveToken(token: model)
                 }
                 break
             case .failure(let error):
+                 self?.saveToken(token: nil)
                 self?.handleError(error: error)
                 break
             }
         }
     }
     
-    func saveToken(token: EZTokenModel){
-        self.container.register(EZLoginBusiness.self) { r in EZLoginBusiness() }
-            .initCompleted { r, c in c.localUser = r.resolve(ILocalModel.self)! }
-        self.container.register(ILocalModel.self) { _ in EZTokenModel() }
-        let business = self.container.resolve(EZLoginBusiness.self)!
+    func saveToken(token: EZTokenModel?){
+        container.register(IEZLoginBusiness.self) { r in EZLoginBusiness.init(localUser: r.resolve(ILocalModel.self)!)}
+        container.register(ILocalModel.self) { _ in EZTokenModel() }
+            .initCompleted { r, c in
+        }
+    
+        let business = container.resolve(IEZLoginBusiness.self) as! EZLoginBusiness
         business.saveTokenToDB()
     }
 }

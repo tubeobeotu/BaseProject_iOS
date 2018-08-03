@@ -8,5 +8,7 @@
 
 import Foundation
 protocol IEZLoginBusiness {
+    var localUser: ILocalModel{get set}
     func saveUserToDB(user: EZUserLocalModel)
+    func saveTokenToDB()
 }
