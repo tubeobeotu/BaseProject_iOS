@@ -94,6 +94,7 @@
 		2F7680F32105E0560086F636 /* IApiQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7680F22105E0560086F636 /* IApiQueryable.swift */; };
 		2F7680F52105E24C0086F636 /* IApiOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7680F42105E24C0086F636 /* IApiOutput.swift */; };
 		2F7680F72105E3140086F636 /* IApiUploadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7680F62105E3140086F636 /* IApiUploadFile.swift */; };
+		2FCA3F812119911B000A739B /* IDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA3F802119911B000A739B /* IDependency.swift */; };
 		2FD1C12421082B2400A958AA /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1C12321082B2400A958AA /* Swinject.framework */; };
 		2FD1C12521082F7D00A958AA /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1C12321082B2400A958AA /* Swinject.framework */; };
 		2FD1C12621082F7D00A958AA /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1C12321082B2400A958AA /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -218,6 +219,7 @@
 		2F7680F22105E0560086F636 /* IApiQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IApiQueryable.swift; sourceTree = "<group>"; };
 		2F7680F42105E24C0086F636 /* IApiOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IApiOutput.swift; sourceTree = "<group>"; };
 		2F7680F62105E3140086F636 /* IApiUploadFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IApiUploadFile.swift; sourceTree = "<group>"; };
+		2FCA3F802119911B000A739B /* IDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDependency.swift; sourceTree = "<group>"; };
 		2FD1C12321082B2400A958AA /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swinject.framework; sourceTree = "<group>"; };
 		2FD1C127210830BA00A958AA /* PublicFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFunc.swift; sourceTree = "<group>"; };
 		2FD1C1292108484D00A958AA /* EZJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZJSON.swift; sourceTree = "<group>"; };
@@ -755,6 +757,7 @@
 		2F7680E72105DAA00086F636 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2FCA3F7F211990FA000A739B /* Dependency */,
 				2FD1C13B210965DA00A958AA /* Business */,
 				2F7680ED2105DF6B0086F636 /* API */,
 				2F7680E82105DAB30086F636 /* Database */,
@@ -785,6 +788,14 @@
 				2F326EC421070D28007D5276 /* IError.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		2FCA3F7F211990FA000A739B /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				2FCA3F802119911B000A739B /* IDependency.swift */,
+			);
+			path = Dependency;
 			sourceTree = "<group>";
 		};
 		2FD1C12221082B1E00A958AA /* Swinject */ = {
@@ -938,6 +949,7 @@
 				2F66DCAE2102D9FE00DC95DD /* Number+Extension.swift in Sources */,
 				2F66DCBB2102D9FE00DC95DD /* VTextView.swift in Sources */,
 				2F66DCAA2102D9FE00DC95DD /* Dictionary+Extension.swift in Sources */,
+				2FCA3F812119911B000A739B /* IDependency.swift in Sources */,
 				2FD1C12C2108488B00A958AA /* IJON.swift in Sources */,
 				2F66DC282102D41900DC95DD /* BaseNavigationController.swift in Sources */,
 				2F66DCBA2102D9FE00DC95DD /* PhotoManager.swift in Sources */,
