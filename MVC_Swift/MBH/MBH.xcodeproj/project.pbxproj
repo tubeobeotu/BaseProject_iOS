@@ -95,6 +95,7 @@
 		2F7680F52105E24C0086F636 /* IApiOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7680F42105E24C0086F636 /* IApiOutput.swift */; };
 		2F7680F72105E3140086F636 /* IApiUploadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7680F62105E3140086F636 /* IApiUploadFile.swift */; };
 		2FCA3F812119911B000A739B /* IDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA3F802119911B000A739B /* IDependency.swift */; };
+		2FCA3F84211AC65D000A739B /* BaseBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCA3F83211AC65D000A739B /* BaseBusiness.swift */; };
 		2FD1C12421082B2400A958AA /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1C12321082B2400A958AA /* Swinject.framework */; };
 		2FD1C12521082F7D00A958AA /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1C12321082B2400A958AA /* Swinject.framework */; };
 		2FD1C12621082F7D00A958AA /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1C12321082B2400A958AA /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -108,7 +109,6 @@
 		2FD1C13821088CC600A958AA /* ApiLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13621088CC600A958AA /* ApiLoginRouter.swift */; };
 		2FD1C13A21088CDF00A958AA /* EZLoginBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13921088CDF00A958AA /* EZLoginBusiness.swift */; };
 		2FD1C13D210965EF00A958AA /* IBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13C210965EF00A958AA /* IBusiness.swift */; };
-		2FD1C1402109662E00A958AA /* BaseBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C13F2109662E00A958AA /* BaseBusiness.swift */; };
 		2FD1C142210966A400A958AA /* IEZLoginBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1C141210966A400A958AA /* IEZLoginBusiness.swift */; };
 /* End PBXBuildFile section */
 
@@ -220,6 +220,7 @@
 		2F7680F42105E24C0086F636 /* IApiOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IApiOutput.swift; sourceTree = "<group>"; };
 		2F7680F62105E3140086F636 /* IApiUploadFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IApiUploadFile.swift; sourceTree = "<group>"; };
 		2FCA3F802119911B000A739B /* IDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDependency.swift; sourceTree = "<group>"; };
+		2FCA3F83211AC65D000A739B /* BaseBusiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBusiness.swift; sourceTree = "<group>"; };
 		2FD1C12321082B2400A958AA /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swinject.framework; sourceTree = "<group>"; };
 		2FD1C127210830BA00A958AA /* PublicFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFunc.swift; sourceTree = "<group>"; };
 		2FD1C1292108484D00A958AA /* EZJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZJSON.swift; sourceTree = "<group>"; };
@@ -231,7 +232,6 @@
 		2FD1C13621088CC600A958AA /* ApiLoginRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiLoginRouter.swift; sourceTree = "<group>"; };
 		2FD1C13921088CDF00A958AA /* EZLoginBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZLoginBusiness.swift; sourceTree = "<group>"; };
 		2FD1C13C210965EF00A958AA /* IBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBusiness.swift; sourceTree = "<group>"; };
-		2FD1C13F2109662E00A958AA /* BaseBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBusiness.swift; sourceTree = "<group>"; };
 		2FD1C141210966A400A958AA /* IEZLoginBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEZLoginBusiness.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -727,7 +727,7 @@
 		2F7680E42105DA1F0086F636 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				2FD1C13E2109661C00A958AA /* Business */,
+				2FCA3F82211AC65D000A739B /* Business */,
 				2F326ED12107205F007D5276 /* Implementation */,
 				2F7680E52105DA1F0086F636 /* Login */,
 			);
@@ -798,6 +798,15 @@
 			path = Dependency;
 			sourceTree = "<group>";
 		};
+		2FCA3F82211AC65D000A739B /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				2FCA3F83211AC65D000A739B /* BaseBusiness.swift */,
+			);
+			name = Business;
+			path = MBH/MVC/Controller/Business;
+			sourceTree = SOURCE_ROOT;
+		};
 		2FD1C12221082B1E00A958AA /* Swinject */ = {
 			isa = PBXGroup;
 			children = (
@@ -831,15 +840,6 @@
 			);
 			path = Business;
 			sourceTree = "<group>";
-		};
-		2FD1C13E2109661C00A958AA /* Business */ = {
-			isa = PBXGroup;
-			children = (
-				2FD1C13F2109662E00A958AA /* BaseBusiness.swift */,
-			);
-			name = Business;
-			path = MBH/MVC/Controller/Business;
-			sourceTree = SOURCE_ROOT;
 		};
 		2FD1C1432109738A00A958AA /* CustomView */ = {
 			isa = PBXGroup;
@@ -976,7 +976,6 @@
 				2F66DCB62102D9FE00DC95DD /* UIView+Extension.swift in Sources */,
 				2F326EBD21070722007D5276 /* AppObject.swift in Sources */,
 				2F66DB512101E62C00DC95DD /* AppDelegate.swift in Sources */,
-				2FD1C1402109662E00A958AA /* BaseBusiness.swift in Sources */,
 				2F326EA32105EB8D007D5276 /* IApiMethod.swift in Sources */,
 				2FD1C142210966A400A958AA /* IEZLoginBusiness.swift in Sources */,
 				2F66DC2F2102D41900DC95DD /* BaseTabBarController.swift in Sources */,
@@ -994,6 +993,7 @@
 				2F66DCAD2102D9FE00DC95DD /* NSMutableAttributedString+Extension.swift in Sources */,
 				2F66DCA72102D9FE00DC95DD /* AppInformation.swift in Sources */,
 				2F326EAF2106C1CE007D5276 /* ServerConfig.swift in Sources */,
+				2FCA3F84211AC65D000A739B /* BaseBusiness.swift in Sources */,
 				2F326EDF2107205F007D5276 /* BaseRouter.swift in Sources */,
 				2F66DCAF2102D9FE00DC95DD /* String+Extension.swift in Sources */,
 				2F326EE12107205F007D5276 /* MiddleApi.swift in Sources */,
