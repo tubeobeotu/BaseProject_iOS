@@ -37,12 +37,13 @@ class EZLoginVC: BaseViewController {
         }
     }
     
-    override func setupDependency() {
-        container.register(IEZLoginBusiness.self) { r in EZLoginBusiness.init(localUser: r.resolve(ILocalModel.self)!)}
-    }
     func saveToken(token: EZTokenModel?){
-        container.register(ILocalModel.self) { r in token! }
-        let business = container.resolve(IEZLoginBusiness.self)
-        business?.saveTokenToDB()
+        container.register(IEZLoginBusiness.self) { r in EZLoginBusiness.init(localUser: r.resolve(ILocalModel.self)!)}
+        container.register(ILocalModel.self) { _ in EZTokenModel() }
+            .initCompleted { r, c in
+        }
+    
+        let business = container.resolve(IEZLoginBusiness.self) as! EZLoginBusiness
+        business.saveTokenToDB()
     }
 }

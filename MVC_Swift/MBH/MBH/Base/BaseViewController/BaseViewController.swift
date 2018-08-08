@@ -7,7 +7,8 @@ enum ContentState {
     case done
 }
 
-class BaseViewController: UIViewController, IDependency{
+class BaseViewController: UIViewController {
+    
     lazy var isLoadConfig = false
     private var enableHideKeyBoardWhenTouchInScreen: Bool = false
     var enableNotification = true
@@ -104,10 +105,6 @@ class BaseViewController: UIViewController, IDependency{
     func handleError(error: IError){
         self.touchOnScreen()
         self.showAlertControllerFromExtension(title: error.getTitle() ?? "", message: error.getErrorDescription() ?? "", okAction: nil)
-    }
-    
-    func setupDependency() {
-        fatalError("[\(#function))] Must be overridden in subclass")
     }
     
 }

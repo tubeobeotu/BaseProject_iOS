@@ -77,7 +77,7 @@ extension String {
     
     func isValidIPAddress() -> Bool {
         let parts = self.components(separatedBy: ".")
-        let nums = parts.flatMap { Int($0) }
+        let nums = parts.compactMap { Int($0) }
         return parts.count == 4 && nums.count == 4 && nums.filter { $0 >= 0 && $0 < 256}.count == 4
     }
     
@@ -175,18 +175,6 @@ extension Data {
     }
 }
 extension String {
-    static func random(length: Int = 20) -> String {
-        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        var randomString: String = ""
-        
-        for _ in 0..<length {
-            let randomValue = arc4random_uniform(UInt32(base.characters.count))
-            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
-        }
-        return randomString
-    }
-}
-extension String {
     var html2AttributedString: NSAttributedString? {
         return Data(utf8).html2AttributedString
     }
@@ -208,7 +196,7 @@ extension String
 {
     func localizedString() -> String
     {
-        return NSLocalizedString(self, comment: "")
+        return LocalizationHandlerUtil.shareInstance().localizedString(self, comment: nil)
     }
     func isValidString() -> Bool
     {
@@ -220,16 +208,6 @@ extension String
     }
 }
 
-extension String
-{
-    func length() -> Int
-    {
-        if let newString = self as? String {
-            return newString.characters.count
-        }
-        return 0
-    }
-}
 
 extension String
 {
