@@ -1,227 +1,173 @@
 
-<p align="center">
+![logo](logo.png)
 
-<img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/logo.png" alt="PullToRefreshKit" title="PullToRefreshKit"/>
+[![Travis](https://travis-ci.org/eggswift/pull-to-refresh.svg?branch=master)](https://travis-ci.org/eggswift/pull-to-refresh)
+[![CocoaPods](https://img.shields.io/cocoapods/v/ESPullToRefresh.svg)](http://cocoapods.org/pods/pull-to-refresh)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift v2.3 v3](https://img.shields.io/badge/Swift-v2.3 v3-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Twitter](https://img.shields.io/badge/Twitter-@lihao_iOS-blue.svg?style=flat)](https://twitter.com/lihao_iOS)
+[![Twitter](https://img.shields.io/badge/Weibo-@李昊_____-orange.svg?style=flat)](http://weibo.com/5120522686/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1)
 
-</p>
+### [中文介绍](README_CN.md)
 
-[![Apps Using](https://img.shields.io/cocoapods/at/PullToRefreshKit.svg?label=Apps%20Using%20PullToRefreshKit&colorB=28B9FE)](http://cocoapods.org/pods/PullToRefreshKit)
-[![Downloads](https://img.shields.io/cocoapods/dt/PullToRefreshKit.svg?label=Total%20Downloads&colorB=28B9FE)](http://cocoapods.org/pods/PullToRefreshKit)
- [![Version](https://img.shields.io/cocoapods/v/PullToRefreshKit.svg?style=flat)](http://cocoapods.org/pods/PullToRefreshKit)  [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
-)](https://developer.apple.com/iphone/index.action)
- [![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
-)](https://developer.apple.com/swift)
- [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
-)](http://mit-license.org)
+**ESPullToRefresh** is an easy-to-use component that give **pull-to-refresh** and **infinite-scrolling** implemention for developers. By extension to UIScrollView, you can easily add pull-to-refresh and infinite-scrolling for any subclass of UIScrollView. If you want to customize its UI style, you just need conform the specified protocol.
 
 
-**The example project contains some hot App refresh example.**
+## Requirements
 
-<table>
-<tr>
-<th>Taobao</th>
-<th>YouKu</th>
-<th>QQ Video</th>
+* Xcode 8 or later
+* iOS 8.0 or later
+* ARC
+* Swift 2.3 or later
 
+## Features
 
-</tr>
-<tr>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/taobao.gif" width="300"/></td>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/youku.gif" width="300"/></td>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/qqvideo.gif" width="300"/></td>
+* Support `UIScrollView` and its subclasses `UICollectionView` `UITableView` `UITextView`
+* Pull-Down to refresh and Pull-Up to load more
+* Support customize your own style(s)
 
-</tr>
-<tr>
-<tr>
-<th>Yahoo Weather</th>
-<th>Dian Ping</th>
-<th>QQ</th>
-</tr>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/yahoo.gif" width="300"/></td>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/dianping.gif" width="300"/></td>
-<td><img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/qq.gif" width="300"/></td>
-</tr>
-<tr>
-</table>
+## Demo
+
+Download and run the ESPullToRefreshExample project in Xcode to see ESPullToRefresh in action.
 
 
-## Require
+## Installation
 
-- iOS 8
-- Swift 4.0
+### CocoaPods
 
-For Swift 3, See branch [Swift3](https://github.com/LeoMobileDeveloper/PullToRefreshKit/tree/Swift3)
-
-## Support
-
-UITableView/UICollectionView/UIScrollView/UIWebView
-
-- [x] Pull to refresh.
-- [x] Pull/Tap to load more.
-- [x] Pull left/right to load more(Currently only support chinese)
-- [x] Elastic refresh 
-- [x] Easy to customize
-- [x] English and Chinese
-
-
-## Install
-
-CocoaPod
-
-```
-pod "PullToRefreshKit"
+``` ruby
+pod "ESPullToRefresh"
 ```
 
-Carthage
+### Carthage
 
+```ruby
+github "eggswift/pull-to-refresh"
 ```
-github "LeoMobileDeveloper/PullToRefreshKit"
+
+### Manually
+
+``` ruby
+git clone https://github.com/eggswift/pull-to-refresh.git
+open ESPullToRefresh
 ```
 
-## Useage
+## Usage
 
-> What is a container?
-> A container is the object that hold the scrollView reference, most time it is a UIViewController object
-
-### Pull down to refresh
+### Default style:
 
 
+![](example_default.gif)
+
+
+
+Add `ESPullToRefresh` to your project
+
+```swift
+import ESPullToRefresh
 ```
-self.tableView.configRefreshHeader(container:self) { [weak self] in
-    delay(2, closure: {
-        self?.tableView.switchRefreshHeader(to: .normal(.success, 0.5))
-    })
+
+Add default pull-to-refresh
+
+``` swift
+self.tableView.es.addPullToRefresh {
+[unowned self] in
+/// Do anything you want...
+/// ...
+/// Stop refresh when your job finished, it will reset refresh footer if completion is true
+self.tableView.es.stopPullToRefresh(completion: true)
+/// Set ignore footer or not
+self.tableView.es.stopPullToRefresh(completion: true, ignoreFooter: false)
 }
 ```
 
-If you do not want any delay:
-
-```
-self.tableView.switchRefreshHeader(to: .normal(.none, 0.0))
-```
-
-<img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif1.gif" width="320">
-
-
-### Pull up to load more
-
-Support three mode to fire refresh action  
-
-- [x] Tap
-- [x] Scroll
-- [x] Scroll and Tap
-
-```
-self.tableView.configRefreshFooter(container:self) { [weak self] in
-	delay(1.5, closure: {
-	    self?.tableView.switchRefreshFooter(to: .normal)
-	})
-};
-```
-
-<img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif2.gif" width="320">
-
-Remove footer:
-
-```
-self.tableView.switchRefreshFooter(to: .removed)
-```
-
-No more Data
-
-```
-self.tableView.switchRefreshFooter(to: .noMoreData)
-```
-
-### Pull left to exit
-
-```
-scrollView.configSideRefresh(with: DefaultRefreshLeft.left(), container:self, at: .left) {
-   self.navigationController?.popViewController(animated: true)
-};
-```
-
-<img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif3.gif" width="200">
-
-### Pull right to Pop
-
-```
-let right  = DefaultRefreshRight.right()
-right.setText("👈滑动关闭", mode: .scrollToAction)
-right.setText("松开关闭", mode: .releaseToAction)
-right.textLabel.textColor = UIColor.orange
-scrollView.configSideRefresh(with: right, container:self, at: .right) { [weak self] in
-    self?.navigationController?.popViewController(animated: true)
-};
-```
-
-<img src="https://raw.github.com/LeoMobileDeveloper/PullToRefreshKit/master/Screenshot/gif4.gif" width="200">
-
-### Config the default refresh text
-
-PullToRefershKit offer `SetUp` operator，for example
-
-```
-let header = DefaultRefreshHeader.header()
-header.setText("Pull to refresh", mode: .pullToRefresh)
-header.setText("Release to refresh", mode: .releaseToRefresh)
-header.setText("Success", mode: .refreshSuccess)
-header.setText("Refreshing...", mode: .refreshing)
-header.setText("Failed", mode: .refreshFailure)
-header.tintColor = UIColor.orange
-header.imageRenderingWithTintColor = true
-header.durationWhenHide = 0.4
-self.tableView.configRefreshHeader(with: header,container:self) { [weak self] in
-    delay(1.5, closure: {
-        self?.models = (self?.models.map({_ in random100()}))!
-        self?.tableView.reloadData()
-        self?.tableView.switchRefreshHeader(to: .normal(.success, 0.3))
-    })
-};
-```
-
-### Customize
-
-You just need to write a `UIView` sub class,and make it conforms to these protocols
-
-- `RefreshableHeader`
-- `RefreshableFooter`
-- `RefreshableLeftRight` 
-
-For exmaple,to create a custom header
-
-``` 
-    //Height of the refresh header
-    func heightForHeader()->CGFloat
-    
-    //Distance from top when in refreshing state
-    func heightForRefreshingState()->CGFloat
-   
-    //Will enter refreshing state,change view state to refreshing in this function
-    func didBeginrefreshingState()
-
-    //The refreshing task is end.Refresh header will hide.Tell user the refreshing result here.
-    func didBeginHideAnimation(result:RefreshResult)
-    
-    //Refresh header is hidden,reset all to inital state here
-    func didCompleteHideAnimation(result:RefreshResult)
-    
-    //Distance to drag to fire refresh action ,default is heightForRefreshingState
-    optional func heightForFireRefreshing()->CGFloat
-    
-    //Percent change during scrolling
-    optional func percentUpdateDuringScrolling(percent:CGFloat)
-    
-    //Duration of header hide animation
-    optional func durationOfHideAnimation()->Double
-    
+Add default infinite-scrolling
+``` swift
+self.tableView.es.addInfiniteScrolling {
+[unowned self] in
+/// Do anything you want...
+/// ...
+/// If common end
+self.tableView.es.stopLoadingMore()
+/// If no more data
+self.tableView.es.noticeNoMoreData()
+}
 ```
 
 
-## Author
+### Customize Style
 
-Leo, leomobiledeveloper@gmail.com
+#### As effect:
+
+![](example_meituan.gif)
+
+**PS: Load effect is from MeiTuan iOS app.**
+
+![](example_wechat.gif)
+
+
+Customize refresh need conform the **ESRefreshProtocol** and **ESRefreshAnimatorProtocol** protocol.
+
+Add customize pull-to-refresh
+
+``` swift
+func es.addPullToRefresh(animator animator: protocol<ESRefreshProtocol, ESRefreshAnimatorProtocol>, handler: ESRefreshHandler)
+```
+
+Add customize infinite-scrolling
+
+``` swift
+func es.addInfiniteScrolling(animator animator: protocol<ESRefreshProtocol, ESRefreshAnimatorProtocol>, handler: ESRefreshHandler)
+```
+
+### Espried and auto refresh
+
+ESPullToRefresh support for the latest expiration time and the cache refresh time, You need set an `refreshIdentifier` to your UIScrollView.
+``` swift
+scrollView.refreshIdentifier = "Your Identifier" // Set refresh identifier
+scrollView.expriedTimeInterval = 20.0 // Set the expiration interval
+```
+You can use `es.autoPullToRefresh()` method, when the time over the last refresh interval expires automatically refreshed.
+``` swift
+scrollView.es.autoPullToRefresh()
+
+let expried = scrollView.espried // expired or not
+```
+
+
+### Remove
+
+``` swift
+func es.removeRefreshHeader()
+func es.removeRefreshFooter()
+```
+
+
+## Contribution
+
+You are welcome to contribute to the project by forking the repo, modifying the code and opening issues or pull requests.
 
 ## License
 
-PullToRefreshKit is available under the MIT license. See the LICENSE file for more info.
+The MIT License (MIT)
+
+Copyright (c) 2013-2016 eggswift
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
